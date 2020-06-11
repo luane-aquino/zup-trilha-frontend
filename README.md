@@ -1,2 +1,2 @@
 # zup-trilha-frontend
-Desafios desenvolvidos na trilha frontend da ZUP
+Desafios da trilha frontend na ZUP
