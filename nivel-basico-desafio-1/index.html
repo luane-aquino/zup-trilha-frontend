@@ -5,11 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <title>Lista de Contatos</title>
 </head>
 <body>
-    <header>
-			<img src="./images/zup-logo.PNG" alt="zup logo">
+    <header class="header">
+      <div class="header__container">
+        <img src="./images/zup-logo.PNG" width="75" height="56" alt="zup logo">
+        <div class="header__search-bar">
+          <button><i class="fas fa-search" aria-label="submit search"></i></button>
+          <input type="search" placeholder="Buscar" aria-label="search">
+        </div>
+        <img src="./images/user-circle-solid-white.svg" width="36" height="36" alt="icon of a user">
+      </div>
     </header>
 </body>
 </html>
