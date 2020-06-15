@@ -9,19 +9,23 @@
     <title>Lista de Contatos</title>
 </head>
 <body>
-    <!-- header start -->
+    <!-- header (start) -->
     <header class="header" role="banner">
       <div class="header__container">
-        <img src="./images/zup-logo.PNG" width="75" height="56" alt="zup logo">
+        <!-- hamburger menu (start) -->
+        <label for="header__menu-hamburger__toggle" class="header__menu-hamburger__label"><span>X</span></label>
+        <input type="checkbox" id="header__menu-hamburger__toggle" class="header__menu-hamburger__toggle">
+        <!-- hamburger menu (end) -->
+        <img src="./images/zup-logo.PNG" width="75" height="56" alt="zup logo" class="header__logo">
         <div class="header__search-bar">
           <button><i class="fas fa-search" aria-label="submit search"></i></button>
           <input type="search" placeholder="Buscar" aria-label="search">
         </div>
-        <img src="./images/user-circle-solid-white.svg" width="36" height="36" alt="icon of a user">
+        <img src="./images/user-circle-solid-white.svg" width="36" height="36" alt="icon of a user" class="header__usericon">
       </div>
     </header>
-    <!-- header end -->
-    <!-- sidebar start -->
+    <!-- header (end) -->
+    <!-- sidebar (start) -->
     <div class="nav-main__container">
       <nav class="sidebar sidebar__container" role="navigation">
         <ul>
@@ -30,8 +34,8 @@
           <li><a href="#"><i class="fas fa-trash-alt"></i>Lixeira</a></li>
         </ul>
       </nav>
-      <!-- sidebar end -->
-      <!-- main start -->
+      <!-- sidebar (end) -->
+      <!-- main (start) -->
       <main class="main main__container" role="main">
         <ul class="main__list">
           <li>
@@ -96,7 +100,7 @@
           </li>
         </ul>
       </main>
-      <!-- main end -->
+      <!-- main (end) -->
     </div>
     <footer role="contentinfo">
 

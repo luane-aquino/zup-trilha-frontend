@@ -54,7 +54,7 @@ header {
 	border-radius: 50%;
 }
 /*
- * nav main container
+ * nav main container, to put sidebar on the left and contacts list on the right
  */
  .nav-main__container {
 	display: flex;
