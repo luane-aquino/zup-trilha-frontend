@@ -116,4 +116,7 @@ header {
 	font-weight: bold;
 	color: #2c3e50;
 }
+main li:last-child a {
+	border: none;
+}
 

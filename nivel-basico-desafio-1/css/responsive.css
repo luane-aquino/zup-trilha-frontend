@@ -1,0 +1,28 @@
+@media screen and (max-width: 954px) {
+  /*
+   * header
+   */
+  .header__search-bar {
+    width: 500px;
+  }
+  /*
+   * sidebar
+   */
+  .sidebar__container {
+    width: 150px;
+  }
+  .sidebar ul a {
+    font-size: 0.9rem;
+  }
+  /*
+   * main
+   */
+  .main__list-item-container {
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+  .main__list-item__picture {
+    width: 28px;
+    height: 28px;
+  }
+}
