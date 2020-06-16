@@ -33,20 +33,20 @@ header {
 .fa-search {
 	color: #b9c53b;
 }
-.header__search-bar {
+.header__search {
 	display: flex;
 	width: 700px;
 	border-radius: 25px;
 	padding: 10px;
 	background-color: #fff;
 }
-.header__search-bar input {
+.header__search input {
 	flex-grow: 1;
 	padding: 0 0.5em;
 	border: 0;
 	outline-color: lightgray;
 }
-.header__search-bar button {
+.header__search button {
 	cursor: pointer;
 	border: 0;
 	padding: 0;
@@ -61,26 +61,26 @@ header {
 	height: 100vh;
 }
 /*
- * sidebar
+ * sidenav
  */
-.sidebar ul {
+.sidenav ul {
 	margin: 10px 10px;
 }
-.sidebar ul a {
+.sidenav ul a {
 	font-size: 1.2rem;
 	color: #aeaeae;
 }
-.sidebar__container {
+.sidenav__container {
 	width: 200px;
 	z-index: -1;
 	background: #fff;
 	box-shadow: 0 0 18px 0 #ccc;
 }
-.sidebar ul li {
+.sidenav ul li {
 	margin: 0;
 	padding: 10px;
 }
-.sidebar ul li i {
+.sidenav ul li i {
 	margin-right: 20px;
 }
 /*

@@ -7,7 +7,7 @@
   .header__logo {
     order: 3;
   }
-  .header__search-bar {
+  .header__search {
     width: 60vw;
     justify-content: space-between;
   }
@@ -15,8 +15,8 @@
     font-size: 2rem;
     color: #fff;
   }
-  /* sidebar */
-  .sidebar__container {
+  /* sidenav */
+  .sidenav__container {
     height: 100vh;
     width: 0;
     position: fixed;
@@ -37,16 +37,16 @@
   /*
    * header
    */
-  .header__search-bar {
+  .header__search {
     width: 500px;
   }
   /*
-   * sidebar
+   * sidenav
    */
-  .sidebar__container {
+  .sidenav__container {
     width: 150px;
   }
-  .sidebar ul a {
+  .sidenav ul a {
     font-size: 0.9rem;
   }
   /*

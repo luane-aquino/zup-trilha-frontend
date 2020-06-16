@@ -1,4 +1,4 @@
-const sidenav = document.getElementById("sidebar__container")
+const sidenav = document.getElementById("sidenav__container")
 const main = document.getElementById("main__container")
 const header = document.getElementById("header__container")
 const header_logo = document.getElementById('header__logo')
