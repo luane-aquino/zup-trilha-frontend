@@ -1,4 +1,39 @@
-@media screen and (max-width: 954px) {
+/* small size screen */
+@media screen and (max-width: 768px) {
+  /* header */
+  .header__user-icon {
+    display: none;
+  }
+  .header__logo {
+    order: 3;
+  }
+  .header__search-bar {
+    width: 60vw;
+    justify-content: space-between;
+  }
+  .header__menu-icon {
+    font-size: 2rem;
+    color: #fff;
+  }
+  /* sidebar */
+  .sidebar__container {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  .sidenav__open {
+    width: 60vw;
+  }
+  
+}
+/* medium size screen */
+@media screen and (min-width: 954px) {
   /*
    * header
    */
