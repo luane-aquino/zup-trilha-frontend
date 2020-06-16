@@ -1,5 +1,4 @@
 /* small size screen */
-<<<<<<< HEAD
 @media screen and (max-width: 768px) {
   /* header */
   .header__user-icon {
@@ -32,52 +31,6 @@
     width: 60vw;
   }
   
-=======
-@media screen and (max-width: 360px) {
-  /*
-   * header
-   */
-  .header__container {
-    width: 100%;
-  }
-  .header__usericon {
-    display: none;
-  }
-  .header__logo {
-    order: 9;
-    width: 50px;
-    height: 42px;
-  }
-  .header__search-bar {
-    width: 200px;
-    margin-left: 68px;
-  }
-  /*
-   * hamburger menu
-   */
-  .sidebar {
-    display: none;
-  }
-  header {
-    position: fixed;
-    width: 100vw;
-  }
-  .header__menu-hamburger__toggle {
-    display: none;
-  }
-  .header__menu-hamburger__label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1em;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  #header__menu-hamburger__toggle:checked ~ .sidebar {
-    display: block;
-  }
->>>>>>> 64daf326bb226caabba8442f6df340cba38a09d1
 }
 /* medium size screen */
 @media screen and (min-width: 954px) {
