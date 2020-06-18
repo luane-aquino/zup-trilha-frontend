@@ -13,9 +13,6 @@ a {
 	margin: 0;
 	text-decoration: none;
 }
-/*
- * header
- */
 header {
 	height: 65px;
 	width: 100%;
@@ -57,16 +54,10 @@ header {
 .header__menu-icon {
 	display: none;
 }
-/*
- * nav main container, to put nav on the left and contacts list on the right side
- */
  .nav-main__container {
 	display: flex;
 	height: 100vh;
 }
-/*
- * nav
- */
 .nav ul {
 	margin: 10px 10px;
 }
@@ -90,9 +81,6 @@ header {
 .sidenav ul li a:hover {
 	color: yellow;
 }
-/*
- * main
- */
 .main__container {
 	flex-grow: 1;
 	background: transparent;
@@ -126,9 +114,6 @@ header {
 main li:last-child a {
 	border: none;
 }
-/*
- * section searchbar. shows only in medium and small size screen
- */
 .section__search {
 	display: none;
 }
