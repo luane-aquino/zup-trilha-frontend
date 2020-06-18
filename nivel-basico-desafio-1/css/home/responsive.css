@@ -56,6 +56,12 @@
     display: none;
     width: 100%;
   }
+  .main__list {
+    margin: 2px 0 0 0;
+  }
+  .main__list-item__email, .main__list-item__phone, .main__list-item__city {
+    display: none;
+  }
   /* close/open */
   .section-close {
     display: none;
