@@ -35,7 +35,7 @@ header {
 }
 .header__search {
 	display: flex;
-	width: 700px;
+	width: 60%;
 	border-radius: 25px;
 	padding: 10px;
 	background-color: #fff;
@@ -52,6 +52,9 @@ header {
 	padding: 0;
 	background: transparent;
 	border-radius: 50%;
+}
+.header__menu-icon {
+	display: none;
 }
 /*
  * nav main container, to put sidebar on the left and contacts list on the right
@@ -119,4 +122,9 @@ header {
 main li:last-child a {
 	border: none;
 }
-
+/*
+ * section searchbar. shows only in medium and small size screen
+ */
+.section__search {
+	display: none;
+}

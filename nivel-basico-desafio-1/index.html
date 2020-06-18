@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/home/main.css">
-    <!-- <link rel="stylesheet" href="./css/responsive.css"> -->
+    <link rel="stylesheet" href="./css/home/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <title>Lista de Contatos</title>
 </head>
@@ -14,6 +14,7 @@
       <div id="header__container" class="header__container">
         <img src="./images/zup-logo.PNG" width="75" height="56" alt="zup logo" id="header__logo" class="header__logo">
         <!-- <span id="header__menu-icon" class="header__menu-icon" onclick="openSidenav()">&#9776;</span> -->
+        <button class="header__menu-icon"><i class="fas fa-bars"></i></button>
         <div class="header__search">
           <button><i class="fas fa-search"></i></button>
           <input type="search" placeholder="Buscar">
@@ -22,6 +23,14 @@
       </div>
     </header>
     <!-- header (end) -->
+    <!-- searchbar. medium and small screen size (start) -->
+    <section class="section__search">
+      <div>
+        <button><i class="fas fa-search"></i></button>
+        <input type="search" placeholder="Buscar">
+      </div>
+    </section>
+    <!-- searchbar. medium and small screen size (end) -->
     <!-- sidenav (start) -->
     <div class="nav-main__container">
       <nav id="sidenav__container" class="sidenav sidenav__container" role="navigation">
