@@ -1,16 +1,9 @@
-const sidenav = document.getElementById("sidenav__container")
-const main = document.getElementById("main__container")
-const header = document.getElementById("header__container")
-const header_logo = document.getElementById('header__logo')
+const nav = document.getElementById('nav__container')
+const section_search = document.getElementById('section__search')
+const header_btn = document.getElementById('header__menu-icon')
 
-function openSidenav() {
-  sidenav.classList.add("sidenav__open")
-}
-
-main.addEventListener("click", () => {
-  sidenav.classList.remove("sidenav__open")
-})
-
-header_logo.addEventListener("click", () => {
-  sidenav.classList.remove("sidenav__open")
+// when click menu btn, show nav and hide searchbar
+header_btn.addEventListener('click', () => {
+  section_search.classList.toggle('section-close')
+  nav.classList.toggle('nav-open')
 })

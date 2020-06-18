@@ -49,8 +49,18 @@
     background: transparent;
     border-radius: 50%;
   }
+  .nav-main__container {
+    flex-direction: column;
+  }
   .nav__container {
     display: none;
+    width: 100%;
   }
-  
+  /* close/open */
+  .section-close {
+    display: none;
+  }
+  .nav-open {
+    display: flex;
+  }
 }
