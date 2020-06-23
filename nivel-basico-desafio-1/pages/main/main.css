@@ -95,9 +95,11 @@ header {
 	margin: 40px 30px;
 	box-shadow: 0 0 10px 0.5px #ccc;
 }
+.main__list p {
+	margin: 0;
+}
 .main__list-item-container {
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
 	margin: 0;
 	padding: 2px 15px;
@@ -105,26 +107,39 @@ header {
 	border-bottom: 1px solid rgba(211, 211, 211, 0.4);
 	background: #fff;
 }
-.main__list-item-container a {
+.main__list-item-container a:not(.main__list-item__name) {
 	color: #aeaeae;
 }
 .main__list-item__picture {
 	width: 36px;
 	height: 36px;
 	border-radius: 25px;
-}
-.main__list-item__picture {
 	flex-basis: 1rem;
 	margin-right: 1rem;
 }
 .main__list-item__name {
 	font-weight: bold;
 	color: #2c3e50;
-	flex-basis: 2rem;
+	flex-basis: 10rem;
 	margin-right: 1rem;
 }
 .main__list-item__email {
-	flex-basis: 20%;
+	flex-basis: 13rem;
+	margin-right: 1rem;
+}
+.main__list-item__phone {
+	flex-basis: 11rem;
+	margin-right: 1rem;
+}
+.main__list-item__city {
+	flex-basis: 8rem;
+	margin-right: 1rem;
+}
+.main__icons-container {
+	flex-basis: 2rem;
+	display: flex;
+	justify-content: space-evenly;
+	flex-grow: 1;
 }
 main li:last-child a {
 	border: none;

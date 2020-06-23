@@ -23,30 +23,32 @@ function generateHTML(users) {
   users.forEach(user => {
     html += `
       <li class="main__list-item-container">
-      <a href="../user/user.html">
-        <img src="../../images/barbara-silva.jpg" alt="picture of Barbara Silva" class="main__list-item__picture">
-      </a>
-      <a href="../user/user.html">
-        <p class="main__list-item__name">${user.name}</p>
-      </a>
-      <a href="../user/user.html">
-        <p class="main__list-item__email">${user.email}</p>
-      </a>
-      <a href="../user/user.html">
-        <p class="main__list-item__phone">${user.telephone}</p>
-      </a>
-      <a href="../user/user.html">
-        <p class="main__list-item__city">${user.address.city}</p>
-      </a>
-      <a href="../user/user.html">
-        <i class="fas fa-trash-alt" class="main__list-item__delete"></i>
-      </a>
-      <a href="../user/user.html">
-        <i class="far fa-list-alt" class="main__list-item__showall"></i>
-      </a>
-      <a href="../user/user.html">
-        <i class="fas fa-check-double" class="main__list-item__showcompleted"></i>
-      </a>
+        <a href="../user/user.html">
+          <img src="../../images/barbara-silva.jpg" alt="picture of Barbara Silva" class="main__list-item__picture">
+        </a>
+        <a href="../user/user.html" class="main__list-item__name">
+          <span>${user.name}</span>
+        </a>
+        <a href="../user/user.html" class="main__list-item__email">
+          <span>${user.email}</span>
+        </a>
+        <a href="../user/user.html" class="main__list-item__phone">
+          <span>${user.phone}</span>
+        </a>
+        <a href="../user/user.html" class="main__list-item__city">
+          <span>${user.address.city}</span>
+        </a>
+        <div class="main__icons-container">
+          <a href="../user/user.html" class="main__list-item__delete">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+          <a href="../user/user.html" class="main__list-item__showall">
+            <i class="far fa-list-alt"></i>
+          </a>
+          <a href="../user/user.html" class="main__list-item__showcompleted">
+            <i class="fas fa-check-double"></i>
+          </a>
+        </div>
     </li>
   `
   })
