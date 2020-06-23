@@ -104,6 +104,8 @@ header {
 	border-radius: 4px;
 	border-bottom: 1px solid rgba(211, 211, 211, 0.4);
 	background: #fff;
+}
+.main__list-item-container a {
 	color: #aeaeae;
 }
 .main__list-item__picture {
