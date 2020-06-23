@@ -97,7 +97,7 @@ header {
 }
 .main__list-item-container {
 	display: flex;
-	/* justify-content: space-between; */
+	justify-content: space-around;
 	align-items: center;
 	margin: 0;
 	padding: 2px 15px;
@@ -120,7 +120,8 @@ header {
 .main__list-item__name {
 	font-weight: bold;
 	color: #2c3e50;
-	flex-basis: 25%;
+	flex-basis: 2rem;
+	margin-right: 1rem;
 }
 .main__list-item__email {
 	flex-basis: 20%;

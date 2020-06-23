@@ -22,15 +22,29 @@ function generateHTML(users) {
   let html = ''
   users.forEach(user => {
     html += `
-      <li>
-      <a class="main__list-item-container" href="./user.html">
-        <img src="./images/barbara-silva.jpg" alt="picture of Barbara Silva" class="main__list-item__picture">
+      <li class="main__list-item-container">
+      <a href="../user/user.html">
+        <img src="../../images/barbara-silva.jpg" alt="picture of Barbara Silva" class="main__list-item__picture">
+      </a>
+      <a href="../user/user.html">
         <p class="main__list-item__name">${user.name}</p>
+      </a>
+      <a href="../user/user.html">
         <p class="main__list-item__email">${user.email}</p>
-        <p class="main__list-item__phone">${user.phone}</p>
+      </a>
+      <a href="../user/user.html">
+        <p class="main__list-item__phone">${user.telephone}</p>
+      </a>
+      <a href="../user/user.html">
         <p class="main__list-item__city">${user.address.city}</p>
+      </a>
+      <a href="../user/user.html">
         <i class="fas fa-trash-alt" class="main__list-item__delete"></i>
+      </a>
+      <a href="../user/user.html">
         <i class="far fa-list-alt" class="main__list-item__showall"></i>
+      </a>
+      <a href="../user/user.html">
         <i class="fas fa-check-double" class="main__list-item__showcompleted"></i>
       </a>
     </li>
@@ -40,6 +54,7 @@ function generateHTML(users) {
 }
 
 function fillUI(users) {
+  console.log(users)
   const userHTML = generateHTML(users)
   userList.innerHTML = userHTML
 }
