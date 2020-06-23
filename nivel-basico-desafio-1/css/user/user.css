@@ -4,8 +4,6 @@ body {
   margin: 0;
   background: linear-gradient(#2c3e50 0 40%, #f2f2f2 40% 100%);
   overflow-x: hidden;
-  display: flex;
-  justify-content: flex-start;
   font-family: Helvetica;
   font-size: 0.8rem;
 }
@@ -22,6 +20,12 @@ body {
   font-size: 0.7rem;
   color: #2c3e50;
 }
+.header {
+  height: 3rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
 main {
   width: 45vw;
   height: 60vh;
@@ -32,8 +36,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  align-self: center;
-  margin-left: 24%;
+  margin: 4rem auto;
 }
 main img {
   border: 3px solid #fff;
