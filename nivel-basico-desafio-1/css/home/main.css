@@ -28,7 +28,6 @@ header {
 	width: 98%;
 	height: 100%;
 	margin: auto;
-	cursor: pointer;
 }
 .fa-search {
 	color: #b9c53b;
@@ -55,6 +54,10 @@ header {
 }
 .header__menu-icon {
 	display: none;
+}
+.header__user-icon {
+	width: 2rem;
+	height: 2rem;
 }
  .nav-main__container {
 	display: flex;
