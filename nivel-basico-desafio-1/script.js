@@ -7,3 +7,11 @@ header_btn.addEventListener('click', () => {
   section_search.classList.toggle('section-close')
   nav.classList.toggle('nav-open')
 })
+
+// consume api
+async function getUsers() {
+  let response = await fetch('https://jsonplaceholder.typicode.com/users')
+  let data = await response.json()
+  return data
+}
+getUsers().then(data => console.log(data))
