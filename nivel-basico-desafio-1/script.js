@@ -9,7 +9,7 @@ headerBtn.addEventListener('click', () => {
   nav.classList.toggle('nav-open')
 })
 
-// consume api
+// get all users from api
 async function getUsers() {
   let response = await fetch('https://jsonplaceholder.typicode.com/users')
   let users = await response.json()
@@ -56,7 +56,6 @@ function generateHTML(users) {
 }
 
 function fillUI(users) {
-  console.log(users)
-  const userHTML = generateHTML(users)
-  userList.innerHTML = userHTML
+  const usersHTML = generateHTML(users)
+  userList.innerHTML = usersHTML
 }
