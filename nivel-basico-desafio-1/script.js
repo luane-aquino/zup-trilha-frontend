@@ -26,7 +26,7 @@ function generateHTML(users) {
         <a href="../user/user.html">
           <img src="../../images/barbara-silva.jpg" alt="picture of Barbara Silva" class="main__list-item__picture">
         </a>
-        <a href="../user/user.html" class="main__list-item__name">
+        <a href="pages/user/user.html" class="main__list-item__name">
           <span>${user.name}</span>
         </a>
         <a href="../user/user.html" class="main__list-item__email">
