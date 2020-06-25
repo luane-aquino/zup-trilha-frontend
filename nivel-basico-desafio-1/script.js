@@ -3,13 +3,9 @@ const sectionSearch = document.getElementById('section__search')
 const headerBtn = document.getElementById('header__menu-icon')
 const userList = document.getElementById('main__list')
 
-// go to another page (page that shows user details)
-userList.addEventListener('click', e => {
-  // console.log('**** going to another page', userList)
-  // nonameyet(e.target.getAttribute('data-id'))
-  location.replace('./pages/user/user.html')
-  //const id = e.target.getAttribute('data-id')
-  //getUser(id).then(user => fillUIOneUser(user)) */
+document.addEventListener('DOMContentLoaded', (event) => {
+  console.log('DOM fully loaded and parsed')
+  getUsers().then(users => fillUIAllUsers(users))
 })
 
 // when click menu btn, show nav and hide searchbar
@@ -24,18 +20,17 @@ async function getUsers() {
   let users = await response.json()
   return users
 }
-getUsers().then(users => fillUIAllUsers(users))
 
 // fill ui with user data
-function generateHTML(users) {
+function generateHTMLAllUsers(users) {
   let html = ''
   users.forEach(user => {
     html += `
       <li class="main__list-item-container" data-id="${user.id}">
-        <a href="../user/user.html">
+        <a href="../user/user.html?id=${user.id}">
           <img src="../../images/barbara-silva.jpg" alt="picture of Barbara Silva" class="main__list-item__picture">
         </a>
-        <a href="pages/user/user.html" class="main__list-item__name">
+        <a href="pages/user/user.html?id=${user.id}" class="main__list-item__name">
           <span>${user.name}</span>
         </a>
         <a href="../user/user.html" class="main__list-item__email">
@@ -65,6 +60,6 @@ function generateHTML(users) {
 }
 
 function fillUIAllUsers(users) {
-  const usersHTML = generateHTML(users)
+  const usersHTML = generateHTMLAllUsers(users)
   userList.innerHTML = usersHTML
 }

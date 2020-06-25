@@ -1,16 +1,19 @@
 const main = document.getElementById('main')
 
 document.addEventListener('DOMContentLoaded', (event) => {
-  console.log('DOM fully loaded and parsed');
-});
+  console.log('DOM fully loaded and parsed')
+  const id = getId()
+  getUser(id).then(user => {
+    fillUIOneUser(user)
+  })
+})
 
-// function nonameyet(id) {
-//   console.log('**in another page')
-//   location.replace('./pages/user/user.html')
-  
-//   // getUser(id).then(user => console.log('***user ', user))
-//   // getUser(id).then(user => fillUIOneUser(user))
-// }
+//get id from query parameter
+function getId() {
+  const params = new URLSearchParams(document.location.search.substring(1))
+  const id = params.get('id')
+  return id
+}
 
 // get user from api
 async function getUser(userId) {
@@ -18,9 +21,8 @@ async function getUser(userId) {
   let user = await response.json()
   return user
 }
-// getUser().then(user => fillUI(user))
 
-function generateHTML(user) {
+function generateHTMLOneUser(user) {
   const content = `
     <img src="../../images/barbara-silva.jpg" alt="Barbara Silva" width="150" height="150">
     <span class="main__title">Hi, My name is</span>
@@ -38,6 +40,6 @@ function generateHTML(user) {
 }
 
 function fillUIOneUser(user) {
-  const userHTML = generateHTML(user)
+  const userHTML = generateHTMLOneUser(user)
   main.innerHTML = userHTML
 }
