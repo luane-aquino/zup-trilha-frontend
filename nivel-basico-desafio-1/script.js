@@ -27,7 +27,7 @@ function generateHTMLAllUsers(users) {
   users.forEach(user => {
     html += `
       <li class="main__list-item-container" data-id="${user.id}">
-        <a href="../user/user.html?id=${user.id}">
+        <a href="pages/user/user.html?id=${user.id}">
           <img src="${user.picture}" alt="picture of Barbara Silva" class="main__list-item__picture">
         </a>
         <a href="pages/user/user.html?id=${user.id}" class="main__list-item__name">
