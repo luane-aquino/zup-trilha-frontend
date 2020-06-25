@@ -33,13 +33,13 @@ function generateHTMLAllUsers(users) {
         <a href="pages/user/user.html?id=${user.id}" class="main__list-item__name">
           <span>${user.name}</span>
         </a>
-        <a href="../user/user.html" class="main__list-item__email">
+        <a href="pages/user/user.html?id=${user.id}" class="main__list-item__email">
           <span>${user.email}</span>
         </a>
-        <a href="../user/user.html" class="main__list-item__phone">
+        <a href="pages/user/user.html?id=${user.id}" class="main__list-item__phone">
           <span>${user.phone}</span>
         </a>
-        <a href="../user/user.html" class="main__list-item__city">
+        <a href="pages/user/user.html?id=${user.id}" class="main__list-item__city">
           <span>${user.address.city}</span>
         </a>
         <div class="main__icons-container">
