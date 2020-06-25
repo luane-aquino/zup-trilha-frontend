@@ -1,12 +1,24 @@
 const main = document.getElementById('main')
 
+document.addEventListener('DOMContentLoaded', (event) => {
+  console.log('DOM fully loaded and parsed');
+});
+
+// function nonameyet(id) {
+//   console.log('**in another page')
+//   location.replace('./pages/user/user.html')
+  
+//   // getUser(id).then(user => console.log('***user ', user))
+//   // getUser(id).then(user => fillUIOneUser(user))
+// }
+
 // get user from api
-async function getUser() {
-  let response = await fetch('https://jsonplaceholder.typicode.com/users/1')
+async function getUser(userId) {
+  let response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
   let user = await response.json()
   return user
 }
-getUser().then(user => fillUI(user))
+// getUser().then(user => fillUI(user))
 
 function generateHTML(user) {
   const content = `
@@ -25,7 +37,7 @@ function generateHTML(user) {
   return content
 }
 
-function fillUI(user) {
+function fillUIOneUser(user) {
   const userHTML = generateHTML(user)
   main.innerHTML = userHTML
 }
