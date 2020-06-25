@@ -24,7 +24,7 @@ async function getUser(userId) {
 
 function generateHTMLOneUser(user) {
   const content = `
-    <img src="${user.picture}" alt="Barbara Silva" width="150" height="150">
+    <img src="${user.picture}" alt="${user.name}">
     <span class="main__title">Hi, My name is</span>
     <span class="main__info">${user.name}</span>
     <div class="main__icons">

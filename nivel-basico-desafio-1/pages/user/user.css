@@ -42,6 +42,8 @@ main img {
   border: 3px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px #ccc;
+  width: 150px;
+	height: 150px;
 }
 .main__title {
   margin-top: 20px;
