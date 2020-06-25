@@ -14,3 +14,13 @@ Especificações
 * O sistema deve seguir o layout proposto
 * A aplicação deve ser responsiva (mobile, tablet, desktop);
 * Armazenar o código fonte no Github;
+
+## Starting and using json-server
+Requirement: nodejs installed
+
+npm install -g json-server
+
+json-server --watch ./data/db.json
+
+http://localhost:3000/users
+http://localhost:3000/users/1
