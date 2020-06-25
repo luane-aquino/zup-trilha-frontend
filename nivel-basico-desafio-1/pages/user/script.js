@@ -17,14 +17,14 @@ function getId() {
 
 // get user from api
 async function getUser(userId) {
-  let response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+  let response = await fetch(`http://localhost:3000/users/${userId}`)
   let user = await response.json()
   return user
 }
 
 function generateHTMLOneUser(user) {
   const content = `
-    <img src="../../images/barbara-silva.jpg" alt="Barbara Silva" width="150" height="150">
+    <img src="${user.picture}" alt="Barbara Silva" width="150" height="150">
     <span class="main__title">Hi, My name is</span>
     <span class="main__info">${user.name}</span>
     <div class="main__icons">

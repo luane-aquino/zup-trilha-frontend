@@ -16,7 +16,7 @@ headerBtn.addEventListener('click', () => {
 
 // get all users from api
 async function getUsers() {
-  let response = await fetch('https://jsonplaceholder.typicode.com/users')
+  let response = await fetch('http://localhost:3000/users')
   let users = await response.json()
   return users
 }
@@ -28,7 +28,7 @@ function generateHTMLAllUsers(users) {
     html += `
       <li class="main__list-item-container" data-id="${user.id}">
         <a href="../user/user.html?id=${user.id}">
-          <img src="../../images/barbara-silva.jpg" alt="picture of Barbara Silva" class="main__list-item__picture">
+          <img src="${user.picture}" alt="picture of Barbara Silva" class="main__list-item__picture">
         </a>
         <a href="pages/user/user.html?id=${user.id}" class="main__list-item__name">
           <span>${user.name}</span>
