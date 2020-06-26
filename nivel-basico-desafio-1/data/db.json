@@ -6,6 +6,8 @@
     "username": "Bret",
     "email": "Sincere@april.biz",
     "picture": "https://randomuser.me/api/portraits/women/1.jpg",
+    "birthday": "11/05/1978",
+    "password": "12345",
     "address": {
       "street": "Kulas Light",
       "suite": "Apt. 556",
@@ -30,6 +32,8 @@
     "username": "Antonette",
     "email": "Shanna@melissa.tv",
     "picture": "https://randomuser.me/api/portraits/men/1.jpg",
+    "birthday": "01/02/1988",
+    "password": "12345",
     "address": {
       "street": "Victor Plains",
       "suite": "Suite 879",
@@ -54,6 +58,8 @@
     "username": "Samantha",
     "email": "Nathan@yesenia.net",
     "picture": "https://randomuser.me/api/portraits/men/2.jpg",
+    "birthday": "11/12/1998",
+    "password": "12345",
     "address": {
       "street": "Douglas Extension",
       "suite": "Suite 847",
@@ -78,6 +84,8 @@
     "username": "Karianne",
     "email": "Julianne.OConner@kory.org",
     "picture": "https://randomuser.me/api/portraits/women/4.jpg",
+    "birthday": "14/03/2001",
+    "password": "12345",
     "address": {
       "street": "Hoeger Mall",
       "suite": "Apt. 692",
@@ -102,6 +110,8 @@
     "username": "Kamren",
     "email": "Lucio_Hettinger@annie.ca",
     "picture": "https://randomuser.me/api/portraits/men/10.jpg",
+    "birthday": "11/05/1978",
+    "password": "12345",
     "address": {
       "street": "Skiles Walks",
       "suite": "Suite 351",
@@ -126,6 +136,8 @@
     "username": "Leopoldo_Corkery",
     "email": "Karley_Dach@jasper.info",
     "picture": "https://randomuser.me/api/portraits/men/20.jpg",
+    "birthday": "11/05/1978",
+    "password": "12345",
     "address": {
       "street": "Norberto Crossing",
       "suite": "Apt. 950",
@@ -150,6 +162,8 @@
     "username": "Elwyn.Skiles",
     "email": "Telly.Hoeger@billy.biz",
     "picture": "https://randomuser.me/api/portraits/men/30.jpg",
+    "birthday": "11/05/1978",
+    "password": "12345",
     "address": {
       "street": "Rex Trail",
       "suite": "Suite 280",
@@ -174,6 +188,8 @@
     "username": "Maxime_Nienow",
     "email": "Sherwood@rosamond.me",
     "picture": "https://randomuser.me/api/portraits/men/25.jpg",
+    "birthday": "11/05/1978",
+    "password": "12345",
     "address": {
       "street": "Ellsworth Summit",
       "suite": "Suite 729",
@@ -198,6 +214,8 @@
     "username": "Delphine",
     "email": "Chaim_McDermott@dana.io",
     "picture": "https://randomuser.me/api/portraits/women/18.jpg",
+    "birthday": "11/05/1978",
+    "password": "12345",
     "address": {
       "street": "Dayna Park",
       "suite": "Suite 449",
@@ -222,6 +240,8 @@
     "username": "Moriah.Stanton",
     "email": "Rey.Padberg@karina.biz",
     "picture": "https://randomuser.me/api/portraits/women/19.jpg",
+    "birthday": "11/05/1978",
+    "password": "12345",
     "address": {
       "street": "Kattie Turnpike",
       "suite": "Suite 198",

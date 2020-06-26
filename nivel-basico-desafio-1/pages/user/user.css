@@ -63,11 +63,14 @@ main img {
   width: 60%;
   font-size: 1.5rem;
   cursor: pointer;
+  color: #b9b9b9;
 }
 .main__icons i {
-  color: #b9b9b9;
   padding: 10px;
 }
 .main__icons i:hover {
+  color: #bdcc2e;
+}
+.main__icons-active {
   color: #bdcc2e;
 }
