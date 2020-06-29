@@ -3,6 +3,7 @@ const sectionSearch = document.getElementById('section__search')
 const headerBtn = document.getElementById('header__menu-icon')
 const userList = document.getElementById('main__list')
 const headerSearchInput = document.getElementById('header__search__input')
+const navDeleted = document.getElementById('show-deleted')
 
 /* initialize ui (start) */ 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -55,7 +56,7 @@ function generateHTMLAllUsers(users) {
   let html = ''
   users.forEach(user => {
     html += `
-      <li class="main__list-item-container" data-id="${user.id}">
+      <li class="main__list-item-container" data-id="${user.id}" data-status="all">
         <a href="pages/user/user.html?id=${user.id}">
           <img src="${user.picture}" alt="${user.name}" class="main__list-item__picture">
         </a>
@@ -75,7 +76,7 @@ function generateHTMLAllUsers(users) {
           <button data-type="btn-delete" class="main__btn--delete">
             <i class="fas fa-trash-alt"></i>
           </button>
-          <button data-type="btn-all" class="main__btn--showall">
+          <button data-type="btn-all" class="main__btn--all">
             <i class="far fa-list-alt"></i>
           </button>
           <button data-type="btn-done" class="main__btn--done">
@@ -133,4 +134,35 @@ function showAll() {
     li.style.display = ''
   })
 }
-/* code for buttons inside each li (end) */ 
+/* code for buttons inside each li (end) */
+
+/* code for sidenav (start) */
+navDeleted.addEventListener('click', showDeletedUsers)
+
+function showDeletedUsers() {
+  const listItems = userList.querySelectorAll('li')
+  listItems.forEach(li => {
+    if(li.getAttribute('data-status') === 'deleted') {
+      showListItem(li)
+      hideDeleteBtnFromListItem(li)   
+    } else {
+      hideListItem(li)
+    }
+  })
+}
+
+function showListItem(li) {
+  // show li
+  li.style.display = ''
+}
+
+function hideDeleteBtnFromListItem(li) {
+  // hide delete btn
+  li.querySelector('.main__btn--delete').style.display = 'none'
+}
+
+function hideListItem(li) {
+  // hide li
+  li.style.display = 'none'
+}
+/* code for sidenav (end) */

@@ -61,14 +61,14 @@ header {
 	width: 2rem;
 	height: 2rem;
 }
- .nav-main__container {
+.nav-main__container {
 	display: flex;
 	height: 100vh;
 }
 .nav ul {
 	margin: 10px 10px;
 }
-.nav ul a {
+.nav ul li {
 	font-size: 1.2rem;
 	color: #aeaeae;
 }
@@ -84,7 +84,7 @@ header {
 .nav ul li i {
 	margin-right: 20px;
 }
-.nav ul li a:hover {
+.nav ul li:hover {
 	color: #b9c53b;
 }
 .main__container {
