@@ -75,7 +75,7 @@ function generateHTMLAllUsers(users) {
           <button data-type="btn-delete" class="main__btn--delete">
             <i class="fas fa-trash-alt"></i>
           </button>
-          <button data-type="btn-showall" class="main__btn--showall">
+          <button data-type="btn-all" class="main__btn--showall">
             <i class="far fa-list-alt"></i>
           </button>
           <button data-type="btn-done" class="main__btn--done">
@@ -100,16 +100,18 @@ userList.addEventListener('click', checkBtnType)
 function checkBtnType(e) {
   // STRANGE BEHAVIOR
   const btnType = e.target.parentNode.getAttribute('data-type')
-  console.log('**', typeof btnType)
   switch (btnType) {
     case 'btn-delete':
       deleteUser(e)
-      break;
+      break
     case 'btn-done':
       setUserDone(e)
-      break;
+      break
+    case 'btn-all':
+      showAll()
+      break
     default:
-      break;
+      break
   }
 }
 
@@ -123,5 +125,12 @@ function setUserDone(e) {
   const li = e.target.parentNode.parentNode.parentNode
   li.setAttribute('data-status', 'done')
   li.style.display = 'none'
+}
+
+function showAll() {
+  const listItemsArr = userList.querySelectorAll('li')
+  listItemsArr.forEach(li => {
+    li.style.display = ''
+  })
 }
 /* delete user from list of contacts (end) */ 
