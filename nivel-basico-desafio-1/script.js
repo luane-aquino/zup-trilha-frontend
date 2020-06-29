@@ -72,15 +72,15 @@ function generateHTMLAllUsers(users) {
           <span>${user.address.city}</span>
         </a>
         <div class="main__icons-container">
-          <a href="../user/user.html" class="main__list-item__delete">
+          <button class="main__btn--delete">
             <i class="fas fa-trash-alt"></i>
-          </a>
-          <a href="../user/user.html" class="main__list-item__showall">
+          </button>
+          <button class="main__btn--showall">
             <i class="far fa-list-alt"></i>
-          </a>
-          <a href="../user/user.html" class="main__list-item__showcompleted">
+          </button>
+          <button class="main__btn--completed">
             <i class="fas fa-check-double"></i>
-          </a>
+          </button>
         </div>
     </li>
   `
@@ -93,3 +93,13 @@ function fillUIAllUsers(users) {
   userList.innerHTML = usersHTML
 }
 /* fill ui with user data from api (end) */
+
+/* delete user from list of contacts (start) */ 
+userList.addEventListener('click', deleteUser)
+
+function deleteUser(e) {
+  const li = e.target.parentNode.parentNode.parentNode
+  li.setAttribute('data-status', 'deleted')
+  li.style.display = 'none'
+}
+/* delete user from list of contacts (end) */ 
