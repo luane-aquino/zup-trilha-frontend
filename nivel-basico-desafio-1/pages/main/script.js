@@ -4,6 +4,7 @@ const headerBtn = document.getElementById('header__menu-icon')
 const userList = document.getElementById('main__list')
 const headerSearchInput = document.getElementById('header__search__input')
 const navDeleted = document.getElementById('show-deleted')
+const navDone = document.getElementById('show-done')
 
 /* initialize ui (start) */ 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -138,6 +139,19 @@ function showAll() {
 
 /* code for sidenav (start) */
 navDeleted.addEventListener('click', showDeletedUsers)
+navDone.addEventListener('click', showDoneUsers)
+
+function showDoneUsers() {
+  const listItems = userList.querySelectorAll('li')
+  listItems.forEach(li => {
+    if(li.getAttribute('data-status') === 'done') {
+      showListItem(li)
+      hideDoneBtnFromListItem(li)   
+    } else {
+      hideListItem(li)
+    }
+  })
+}
 
 function showDeletedUsers() {
   const listItems = userList.querySelectorAll('li')
@@ -159,6 +173,11 @@ function showListItem(li) {
 function hideDeleteBtnFromListItem(li) {
   // hide delete btn
   li.querySelector('.main__btn--delete').style.display = 'none'
+}
+
+function hideDoneBtnFromListItem(li) {
+  // hide done btn
+  li.querySelector('.main__btn--done').style.display = 'none'
 }
 
 function hideListItem(li) {
