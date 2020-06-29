@@ -94,7 +94,7 @@ function fillUIAllUsers(users) {
 }
 /* fill ui with user data from api (end) */
 
-/* delete user from list of contacts (start) */ 
+/* code for buttons inside each li (start) */ 
 userList.addEventListener('click', checkBtnType)
 
 function checkBtnType(e) {
@@ -133,4 +133,4 @@ function showAll() {
     li.style.display = ''
   })
 }
-/* delete user from list of contacts (end) */ 
+/* code for buttons inside each li (end) */ 
