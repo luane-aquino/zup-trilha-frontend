@@ -1,13 +1,3 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-  console.log('DOM fully loaded and parsed')
-  const id = getId()
-  getUser(id).then(userData => {
-    user = userData
-    setUserPicture()
-    showUserName()
-  })
-})
-
 let user = ''
 const main = document.getElementById('main')
 const mainTitle = document.getElementById('main__title')
@@ -19,18 +9,45 @@ const mainIconsBirthday = document.getElementById('main__icons__birthday')
 const mainIconsLocation = document.getElementById('main__icons__location')
 const mainIconsPassword = document.getElementById('main__icons__password')
 
-mainIconsName.addEventListener('mouseover', showUserName)
-mainIconsEmail.addEventListener('mouseover', showUserEmail)
-mainIconsTelephone.addEventListener('mouseover', showUserTelephone)
-mainIconsBirthday.addEventListener('mouseover', showUserBirthday)
-mainIconsLocation.addEventListener('mouseover', showUserLocation)
-mainIconsPassword.addEventListener('mouseover', showUserPassword)
+/* get user/id from api and initialize ui (start) */
+document.addEventListener('DOMContentLoaded', (event) => {
+  console.log('DOM fully loaded and parsed')
+  const id = getId()
+  getUser(id).then(userData => {
+    user = userData
+    setUserPicture()
+    showUserName()
+  })
+})
+
+//get id from query parameter
+function getId() {
+  const params = new URLSearchParams(document.location.search.substring(1))
+  const id = params.get('id')
+  return id
+}
+
+// get user from api
+async function getUser(userId) {
+  let response = await fetch(`http://localhost:3000/users/${userId}`)
+  let user = await response.json()
+  return user
+}
 
 function setUserPicture() {
   const userPicture = document.querySelector('#main img')
   userPicture.setAttribute('src', user.picture)
   userPicture.setAttribute('alt', user.name)
 }
+/* get user/id from api and initialize ui (end) */ 
+
+/* when user mouseover icons, show user details (start) */ 
+mainIconsName.addEventListener('mouseover', showUserName)
+mainIconsEmail.addEventListener('mouseover', showUserEmail)
+mainIconsTelephone.addEventListener('mouseover', showUserTelephone)
+mainIconsBirthday.addEventListener('mouseover', showUserBirthday)
+mainIconsLocation.addEventListener('mouseover', showUserLocation)
+mainIconsPassword.addEventListener('mouseover', showUserPassword)
 
 function showUserName() {
   mainTitle.innerText = 'My name is'
@@ -109,17 +126,4 @@ function showUserPassword() {
   mainIconsBirthday.classList.remove('main__icons-active')
   mainIconsLocation.classList.remove('main__icons-active')
 }
-
-//get id from query parameter
-function getId() {
-  const params = new URLSearchParams(document.location.search.substring(1))
-  const id = params.get('id')
-  return id
-}
-
-// get user from api
-async function getUser(userId) {
-  let response = await fetch(`http://localhost:3000/users/${userId}`)
-  let user = await response.json()
-  return user
-}
+/* when user mouseover icons, show user details (end) */

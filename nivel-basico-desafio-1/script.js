@@ -4,19 +4,28 @@ const headerBtn = document.getElementById('header__menu-icon')
 const userList = document.getElementById('main__list')
 const headerSearchInput = document.getElementById('header__search__input')
 
+/* initialize ui (start) */ 
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
   getUsers().then(users => fillUIAllUsers(users))
 })
 
-/* filter by name (start) */
+// get all users from api
+async function getUsers() {
+  let response = await fetch('http://localhost:3000/users')
+  let users = await response.json()
+  return users
+}
+/* initialize ui (end) */ 
+
+/* filter by name and email (start) */
 headerSearchInput.addEventListener('keyup', filterByName)
 
 function filterByName() {
   console.log('**filter was called')
   let contactItems = document.querySelectorAll('.main__list-item-container')
   let filterValue = document.getElementById('header__search__input').value.toUpperCase()
-  
+
   contactItems.forEach((contact, i) => {
     let name = contact.querySelector('.main__list-item__name span').innerText.toUpperCase()
     let email = contact.querySelector('.main__list-item__email span').innerText.toUpperCase()
@@ -30,21 +39,17 @@ function filterByName() {
     }
   })
 }
-/* filter by name (end) */
+/* filter by name and email (end) */
 
+/* handle hamburger menu (start) */ 
 // when click menu btn, show nav and hide searchbar
 headerBtn.addEventListener('click', () => {
   sectionSearch.classList.toggle('section-close')
   nav.classList.toggle('nav-open')
 })
+/* handle hamburger menu (end) */ 
 
-// get all users from api
-async function getUsers() {
-  let response = await fetch('http://localhost:3000/users')
-  let users = await response.json()
-  return users
-}
-
+/* fill ui with user data from api (start) */
 // fill ui with user data
 function generateHTMLAllUsers(users) {
   let html = ''
@@ -87,3 +92,4 @@ function fillUIAllUsers(users) {
   const usersHTML = generateHTMLAllUsers(users)
   userList.innerHTML = usersHTML
 }
+/* fill ui with user data from api (end) */
