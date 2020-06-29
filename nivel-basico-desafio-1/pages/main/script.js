@@ -147,6 +147,11 @@ function showAllUsers() {
   const listItems = userList.querySelectorAll('li')
   listItems.forEach(li => {
     showListItem(li)
+    if(li.getAttribute('data-status') === 'deleted') {
+      showDeleteBtnFromListItem(li)
+    } else if(li.getAttribute('data-status') === 'done') {
+      showDoneBtnFromListItem(li)
+    }
   })
 }
 
@@ -179,9 +184,19 @@ function showListItem(li) {
   li.style.display = ''
 }
 
+function showDeleteBtnFromListItem(li) {
+  // show delete btn
+  li.querySelector('.main__btn--delete').style.display = ''
+}
+
 function hideDeleteBtnFromListItem(li) {
   // hide delete btn
   li.querySelector('.main__btn--delete').style.display = 'none'
+}
+
+function showDoneBtnFromListItem(li) {
+  // show done btn
+  li.querySelector('.main__btn--done').style.display = ''
 }
 
 function hideDoneBtnFromListItem(li) {
