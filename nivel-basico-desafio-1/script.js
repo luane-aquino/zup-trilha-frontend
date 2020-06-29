@@ -16,12 +16,12 @@ function filterByName() {
   console.log('**filter was called')
   let contactItems = document.querySelectorAll('.main__list-item-container')
   let filterValue = document.getElementById('header__search__input').value.toUpperCase()
-
-  // debugger
+  
   contactItems.forEach((contact, i) => {
-    let inputContent = contact.querySelector('.main__list-item__name span')
-    console.log(inputContent)
-    if(inputContent.innerText.toUpperCase().indexOf(filterValue) > -1) {
+    let name = contact.querySelector('.main__list-item__name span').innerText.toUpperCase()
+    let email = contact.querySelector('.main__list-item__email span').innerText.toUpperCase()
+
+    if(name.indexOf(filterValue) > -1 || email.indexOf(filterValue) > -1) {
       contactItems[i].style.display = ''
       // contactItems[i].classList.remove('main__list-item--hide')
     } else {
