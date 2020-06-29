@@ -98,6 +98,9 @@ header {
 .main__list p {
 	margin: 0;
 }
+.main__list-item--hide {
+	display: none;
+}
 .main__list-item-container {
 	display: flex;
 	align-items: center;

@@ -2,11 +2,35 @@ const nav = document.getElementById('nav__container')
 const sectionSearch = document.getElementById('section__search')
 const headerBtn = document.getElementById('header__menu-icon')
 const userList = document.getElementById('main__list')
+const headerSearchInput = document.getElementById('header__search__input')
 
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
   getUsers().then(users => fillUIAllUsers(users))
 })
+
+/* filter by name (start) */
+headerSearchInput.addEventListener('keyup', filterByName)
+
+function filterByName() {
+  console.log('**filter was called')
+  let contactItems = document.querySelectorAll('.main__list-item-container')
+  let filterValue = document.getElementById('header__search__input').value.toUpperCase()
+
+  // debugger
+  contactItems.forEach((contact, i) => {
+    let inputContent = contact.querySelector('.main__list-item__name span')
+    console.log(inputContent)
+    if(inputContent.innerText.toUpperCase().indexOf(filterValue) > -1) {
+      contactItems[i].style.display = ''
+      // contactItems[i].classList.remove('main__list-item--hide')
+    } else {
+      contactItems[i].style.display = 'none'
+      // contactItems[i].classList.add('main__list-item--hide')
+    }
+  })
+}
+/* filter by name (end) */
 
 // when click menu btn, show nav and hide searchbar
 headerBtn.addEventListener('click', () => {
