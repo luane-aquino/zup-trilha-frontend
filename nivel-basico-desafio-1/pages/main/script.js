@@ -72,13 +72,13 @@ function generateHTMLAllUsers(users) {
           <span>${user.address.city}</span>
         </a>
         <div class="main__icons-container">
-          <button class="main__btn--delete">
+          <button data-type="btn-delete" class="main__btn--delete">
             <i class="fas fa-trash-alt"></i>
           </button>
-          <button class="main__btn--showall">
+          <button data-type="btn-showall" class="main__btn--showall">
             <i class="far fa-list-alt"></i>
           </button>
-          <button class="main__btn--completed">
+          <button data-type="btn-done" class="main__btn--done">
             <i class="fas fa-check-double"></i>
           </button>
         </div>
@@ -95,11 +95,33 @@ function fillUIAllUsers(users) {
 /* fill ui with user data from api (end) */
 
 /* delete user from list of contacts (start) */ 
-userList.addEventListener('click', deleteUser)
+userList.addEventListener('click', checkBtnType)
+
+function checkBtnType(e) {
+  // STRANGE BEHAVIOR
+  const btnType = e.target.parentNode.getAttribute('data-type')
+  console.log('**', typeof btnType)
+  switch (btnType) {
+    case 'btn-delete':
+      deleteUser(e)
+      break;
+    case 'btn-done':
+      setUserDone(e)
+      break;
+    default:
+      break;
+  }
+}
 
 function deleteUser(e) {
   const li = e.target.parentNode.parentNode.parentNode
   li.setAttribute('data-status', 'deleted')
+  li.style.display = 'none'
+}
+
+function setUserDone(e) {
+  const li = e.target.parentNode.parentNode.parentNode
+  li.setAttribute('data-status', 'done')
   li.style.display = 'none'
 }
 /* delete user from list of contacts (end) */ 
