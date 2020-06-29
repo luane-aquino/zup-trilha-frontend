@@ -5,6 +5,7 @@ const userList = document.getElementById('main__list')
 const headerSearchInput = document.getElementById('header__search__input')
 const navDeleted = document.getElementById('show-deleted')
 const navDone = document.getElementById('show-done')
+const navAll = document.getElementById('show-all')
 
 /* initialize ui (start) */ 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -140,6 +141,14 @@ function showAll() {
 /* code for sidenav (start) */
 navDeleted.addEventListener('click', showDeletedUsers)
 navDone.addEventListener('click', showDoneUsers)
+navAll.addEventListener('click', showAllUsers)
+
+function showAllUsers() {
+  const listItems = userList.querySelectorAll('li')
+  listItems.forEach(li => {
+    showListItem(li)
+  })
+}
 
 function showDoneUsers() {
   const listItems = userList.querySelectorAll('li')
