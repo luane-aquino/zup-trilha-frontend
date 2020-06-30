@@ -149,12 +149,17 @@ function showAllUsers() {
   const listItems = userList.querySelectorAll('li')
   listItems.forEach(li => {
     showListItem(li)
-    if(li.getAttribute('data-status') === 'deleted') {
-      showDeleteBtnFromListItem(li)
-    } else if(li.getAttribute('data-status') === 'done') {
-      showDoneBtnFromListItem(li)
-    }
+    showAllButtons(li)
   })
+}
+
+function showAllButtons(li) {
+  // show delete btn
+  li.querySelector('.main__btn--delete').style.display = ''
+  // show all btn
+  li.querySelector('.main__btn--all').style.display = ''
+  // show done btn
+  li.querySelector('.main__btn--done').style.display = ''
 }
 
 function showDoneUsers() {
@@ -162,7 +167,7 @@ function showDoneUsers() {
   listItems.forEach(li => {
     if(li.getAttribute('data-status') === 'done') {
       showListItem(li)
-      hideDoneBtnFromListItem(li)   
+      handleButtonsForDoneUsers(li)
     } else {
       hideListItem(li)
     }
@@ -174,7 +179,7 @@ function showDeletedUsers() {
   listItems.forEach(li => {
     if(li.getAttribute('data-status') === 'deleted') {
       showListItem(li)
-      hideDeleteBtnFromListItem(li)   
+      handleButtonsForDeletedUsers(li)
     } else {
       hideListItem(li)
     }
@@ -186,24 +191,22 @@ function showListItem(li) {
   li.style.display = ''
 }
 
-function showDeleteBtnFromListItem(li) {
-  // show delete btn
-  li.querySelector('.main__btn--delete').style.display = ''
-}
-
-function hideDeleteBtnFromListItem(li) {
+function handleButtonsForDeletedUsers(li) {
   // hide delete btn
   li.querySelector('.main__btn--delete').style.display = 'none'
-}
-
-function showDoneBtnFromListItem(li) {
+  // show all btn
+  li.querySelector('.main__btn--all').style.display = ''
   // show done btn
   li.querySelector('.main__btn--done').style.display = ''
 }
 
-function hideDoneBtnFromListItem(li) {
+function handleButtonsForDoneUsers(li) {
   // hide done btn
   li.querySelector('.main__btn--done').style.display = 'none'
+  // show all btn
+  li.querySelector('.main__btn--all').style.display = ''
+  // show delete btn
+  li.querySelector('.main__btn--delete').style.display = ''
 }
 
 function hideListItem(li) {
