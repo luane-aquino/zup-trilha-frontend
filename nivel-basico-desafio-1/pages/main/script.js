@@ -113,7 +113,7 @@ function checkBtnType(e) {
       setUserDone(e)
       break
     case 'btn-all':
-      showAll()
+      showAll(e)
       break
     default:
       break
@@ -132,11 +132,14 @@ function setUserDone(e) {
   li.style.display = 'none'
 }
 
-function showAll() {
-  const listItemsArr = userList.querySelectorAll('li')
-  listItemsArr.forEach(li => {
-    li.style.display = ''
-  })
+function showAll(e) {
+  const li = e.target.parentNode.parentNode.parentNode
+  li.setAttribute('data-status', 'all')
+  li.style.display = 'none'
+  // const listItemsArr = userList.querySelectorAll('li')
+  // listItemsArr.forEach(li => {
+  //   li.style.display = ''
+  // })
 }
 /* code for buttons inside each li (end) */
 
