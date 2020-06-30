@@ -1,11 +1,13 @@
-const nav = document.getElementById('nav__container')
 const sectionSearch = document.getElementById('section__search')
 const headerBtn = document.getElementById('header__menu-icon')
 const userList = document.getElementById('main__list')
 const headerSearchInput = document.getElementById('header__search__input')
+const nav = document.getElementById('nav__container')
 const navDeleted = document.getElementById('show-deleted')
 const navDone = document.getElementById('show-done')
 const navAll = document.getElementById('show-all')
+const navList = document.getElementById('nav__list')
+const navListItems = navList.getElementsByTagName('li')
 
 /* initialize ui (start) */ 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -209,3 +211,14 @@ function hideListItem(li) {
   li.style.display = 'none'
 }
 /* code for sidenav (end) */
+
+/* add active class to current element in sidenav (start) */
+// add listener for each list item
+for(let i = 0; i < navListItems.length; i++) {
+    navListItems[i].addEventListener('click', function() {
+      let current = document.getElementsByClassName('nav--active')
+      current[0].className = current[0].className.replace('nav--active', '')
+      this.className = 'nav--active'
+    })
+}
+/* add active class to current element in sidenav (end) */

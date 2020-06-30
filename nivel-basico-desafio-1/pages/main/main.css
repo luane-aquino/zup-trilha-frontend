@@ -65,26 +65,26 @@ header {
 	display: flex;
 	height: 100vh;
 }
-.nav ul {
+.nav__list {
 	margin: 10px 10px;
-}
-.nav ul li {
-	font-size: 1.2rem;
 	color: #aeaeae;
+}
+.nav__list li {
+	font-size: 1.2rem;
 }
 .nav__container {
 	width: 200px;
 	background: #fff;
 	box-shadow: 0 0 18px 0 #ccc;
 }
-.nav ul li {
+.nav__list li {
 	margin: 0;
 	padding: 10px;
 }
-.nav ul li i {
+.nav__list li i {
 	margin-right: 20px;
 }
-.nav ul li:hover {
+.nav--active, .nav__list li:hover {
 	color: #b9c53b;
 }
 .main__container {
