@@ -1,4 +1,5 @@
 let user = ''
+const headerBtnBack = document.querySelector('.header__btn--back')
 const main = document.getElementById('main')
 const mainTitle = document.getElementById('main__title')
 const mainInfo = document.getElementById('main__info')
@@ -127,3 +128,9 @@ function showUserPassword() {
   mainIconsLocation.classList.remove('main__icons-active')
 }
 /* when user mouseover icons, show user details (end) */
+
+/* handle back button (start) */
+headerBtnBack.addEventListener('click', function() {
+  window.location = '../../index.html'
+})
+/* handle back button (end) */
