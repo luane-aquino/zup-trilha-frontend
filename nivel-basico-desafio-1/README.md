@@ -15,12 +15,13 @@ Especificações
 * A aplicação deve ser responsiva (mobile, tablet, desktop);
 * Armazenar o código fonte no Github;
 
-## Starting and using json-server
+## Running the project locally
 Requirement: nodejs installed
 
-npm install -g json-server
+* Install dependencies: npm install
 
-json-server --watch ./data/db.json
+* Open index.html in the browser and start json-server: npm start
 
+Example endpoints:
 http://localhost:3000/users
 http://localhost:3000/users/1
