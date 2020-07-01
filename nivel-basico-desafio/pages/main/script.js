@@ -1,18 +1,9 @@
-const sectionSearch = document.getElementById('section__search')
-const headerBtn = document.getElementById('header__menu-icon')
-const userList = document.getElementById('main__list')
-const headerSearchInput = document.getElementById('header__search__input')
-const nav = document.getElementById('nav__container')
-const navDeleted = document.getElementById('show-deleted')
-const navDone = document.getElementById('show-done')
-const navAll = document.getElementById('show-all')
-const navList = document.getElementById('nav__list')
-const navListItems = navList.getElementsByTagName('li')
-
 /* initialize ui (start) */ 
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
-  getUsers().then(users => fillUIAllUsers(users))
+  getUsers()
+    .then(users => fillUIAllUsers(users))
+    .finally(initializeButtons)
 })
 
 // get all users from api
@@ -21,7 +12,18 @@ async function getUsers() {
   let users = await response.json()
   return users
 }
-/* initialize ui (end) */ 
+/* initialize ui (end) */
+
+const headerSearchInput = document.getElementById('header__search__input')
+const headerBtn = document.getElementById('header__menu-icon')
+const sectionSearch = document.getElementById('section__search')
+const userList = document.getElementById('main__list')
+const nav = document.getElementById('nav__container')
+const navDeleted = document.getElementById('show-deleted')
+const navDone = document.getElementById('show-done')
+const navAll = document.getElementById('show-all')
+const navList = document.getElementById('nav__list')
+const navListItems = navList.getElementsByTagName('li')
 
 /* filter by name and email (start) */
 headerSearchInput.addEventListener('keyup', filterByName)
@@ -37,10 +39,8 @@ function filterByName() {
 
     if(name.indexOf(filterValue) > -1 || email.indexOf(filterValue) > -1) {
       contactItems[i].style.display = ''
-      // contactItems[i].classList.remove('main__list-item--hide')
     } else {
       contactItems[i].style.display = 'none'
-      // contactItems[i].classList.add('main__list-item--hide')
     }
   })
 }
@@ -99,25 +99,21 @@ function fillUIAllUsers(users) {
 }
 /* fill ui with user data from api (end) */
 
-/* code for buttons inside each li (start) */ 
-userList.addEventListener('click', checkBtnType)
+/* code for buttons inside each li (start) */
+function initializeButtons() {
+  // loop usuarios
+  // para cada li/item add listener to 3 btns
+  const items = document.querySelectorAll('.main__list-item-container')
+  items.forEach(item => {
+    const btnDelete = item.querySelector('.main__btn--delete')
+    btnDelete.addEventListener('click', deleteUser)
 
-function checkBtnType(e) {
-  // STRANGE BEHAVIOR
-  const btnType = e.target.parentNode.getAttribute('data-type')
-  switch (btnType) {
-    case 'btn-delete':
-      deleteUser(e)
-      break
-    case 'btn-done':
-      setUserDone(e)
-      break
-    case 'btn-all':
-      showAll(e)
-      break
-    default:
-      break
-  }
+    const btnAll = item.querySelector('.main__btn--all')
+    btnAll.addEventListener('click', showAll)
+
+    const btnDone = item.querySelector('.main__btn--done')
+    btnDone.addEventListener('click', setUserDone)
+  })
 }
 
 function deleteUser(e) {
@@ -136,10 +132,6 @@ function showAll(e) {
   const li = e.target.parentNode.parentNode.parentNode
   li.setAttribute('data-status', 'all')
   li.style.display = 'none'
-  // const listItemsArr = userList.querySelectorAll('li')
-  // listItemsArr.forEach(li => {
-  //   li.style.display = ''
-  // })
 }
 /* code for buttons inside each li (end) */
 
