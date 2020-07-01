@@ -1,0 +1,7 @@
+/* medium and small screen size */
+@media screen and (max-width: 978px) {
+  main {
+    width: 70vw;
+    margin-left: 0;
+  }
+}
