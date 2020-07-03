@@ -4,12 +4,14 @@
   "description": "Objetivo:\r Implementar uma aplicação para gerenciar pessoas. Essa aplicação necessita ser executada nos navegadores mais recentes do mercado.",
   "main": "index.html",
   "scripts": {
-    "start": "index.html && json-server --watch ./data/db.json"
+    "start": "concurrently \"json-server --watch ./data/db.json\" \"live-server\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "json-server": "^0.16.1"
+    "concurrently": "^5.2.0",
+    "json-server": "^0.16.1",
+    "live-server": "^1.2.1"
   }
 }
