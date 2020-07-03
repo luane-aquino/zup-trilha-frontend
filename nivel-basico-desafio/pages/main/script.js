@@ -119,7 +119,7 @@ function initializeButtons() {
 
 function deleteUser(e) {
   const li = e.target.parentNode.parentNode.parentNode
-  const btnDeleteIcon = li.querySelector('.main__btn--delete')
+  // const btnDeleteIcon = li.querySelector('.main__btn--delete')
   // btnDeleteIcon.classList.add('main__btn--red')
   // get id
   const id = li.getAttribute('data-id')
@@ -134,7 +134,7 @@ function deleteUser(e) {
 
 function setUserDone(e) {
   const li = e.target.parentNode.parentNode.parentNode
-  const btnDoneIcon = li.querySelector('.main__btn--done')
+  // const btnDoneIcon = li.querySelector('.main__btn--done')
   // btnDeleteIcon.classList.add('main__btn--red')
   // get id
   const id = li.getAttribute('data-id')
@@ -166,24 +166,23 @@ function showAllUsers() {
   })
 }
 
-function showAllButtons(li) {
-  // show delete btn
-  li.querySelector('.main__btn--delete').style.display = ''
-  // show all btn
-  li.querySelector('.main__btn--all').style.display = ''
-  // show done btn
-  li.querySelector('.main__btn--done').style.display = ''
-}
+// function showAllButtons(li) {
+//   // show delete btn
+//   li.querySelector('.main__btn--delete').style.display = ''
+//   // show all btn
+//   li.querySelector('.main__btn--all').style.display = ''
+//   // show done btn
+//   li.querySelector('.main__btn--done').style.display = ''
+// }
 
 function showDoneUsers() {
-  const listItems = userList.querySelectorAll('li')
-  listItems.forEach(li => {
-    if(li.getAttribute('data-status') === 'done') {
-      showListItem(li)
-      handleButtonsForDoneUsers(li)
-    } else {
-      hideListItem(li)
-    }
+  getUsers()
+  .then(allUsers => {
+    return filterDoneUsers(allUsers)
+  })
+  .then(doneUsers => {
+    // debugger
+    fillUIAllUsers(doneUsers)
   })
 }
 
@@ -204,6 +203,14 @@ function filterDeletedUsers(users) {
   // console.log('**', typeof deletedUsers)
   // debugger
   return deletedUsers
+}
+
+function filterDoneUsers(users) {
+  const doneUsers = users.filter(user => user.status === 'done')
+  // deletedUsers.forEach(item => console.log('**', item))
+  // console.log('**', typeof deletedUsers)
+  // debugger
+  return doneUsers
 }
 
 function handleButtonsForDoneUsers(li) {
