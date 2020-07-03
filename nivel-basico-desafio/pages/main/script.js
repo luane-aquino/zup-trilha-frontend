@@ -198,10 +198,8 @@ function showDeletedUsers() {
     })
     .finally(() => {
       initializeButtons()
-      hideBtnDone()
+      hideBtnDelete()
     })
-
-    hideBtnDelete()
 }
 
 function filterDeletedUsers(users) {
