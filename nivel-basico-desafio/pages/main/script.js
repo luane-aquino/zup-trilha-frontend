@@ -163,15 +163,6 @@ function showAllUsers() {
     .then(users => fillUIAllUsers(users))
 }
 
-// function showAllButtons(li) {
-//   // show delete btn
-//   li.querySelector('.main__btn--delete').style.display = ''
-//   // show all btn
-//   li.querySelector('.main__btn--all').style.display = ''
-//   // show done btn
-//   li.querySelector('.main__btn--done').style.display = ''
-// }
-
 function showDoneUsers() {
   getUsers()
   .then(allUsers => {
@@ -215,15 +206,6 @@ function hideBtnDone() {
   const doneBtns = document.querySelectorAll('.main__btn--done')
   // debugger
   doneBtns.forEach(btn => btn.style.display = 'none')
-}
-
-function handleButtonsForDoneUsers(li) {
-  // hide done btn
-  li.querySelector('.main__btn--done').style.display = 'none'
-  // show all btn
-  li.querySelector('.main__btn--all').style.display = ''
-  // show delete btn
-  li.querySelector('.main__btn--delete').style.display = ''
 }
 /* code for sidenav (end) */
 
