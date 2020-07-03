@@ -133,8 +133,16 @@ function deleteUser(e) {
 
 function setUserDone(e) {
   const li = e.target.parentNode.parentNode.parentNode
-  li.setAttribute('data-status', 'done')
-  li.style.display = 'none'
+  const btnDoneIcon = li.querySelector('.main__btn--done')
+  // btnDeleteIcon.classList.add('main__btn--red')
+  // get id
+  const id = li.getAttribute('data-id')
+  // debugger
+  // update user "status": done
+  patchStatus(`http://localhost:3000/users/${id}`, { status: "done" })
+  .then(data => {
+    console.log(data)
+  })
 }
 
 function showAll(e) {
