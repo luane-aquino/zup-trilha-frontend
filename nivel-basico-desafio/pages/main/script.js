@@ -180,6 +180,7 @@ function showDoneUsers() {
   .then(doneUsers => {
     // debugger
     fillUIAllUsers(doneUsers)
+    hideBtnDone()
   })
 }
 
@@ -191,19 +192,29 @@ function showDeletedUsers() {
     .then(deletedUsers => {
       // debugger
       fillUIAllUsers(deletedUsers)
+      hideBtnDelete()
     })
 }
 
 function filterDeletedUsers(users) {
   const deletedUsers = users.filter(user => user.status === 'deleted')
-  // deletedUsers.forEach(item => console.log('**', item))
-  // console.log('**', typeof deletedUsers)
-  // debugger
   return deletedUsers
 }
 
 function filterDoneUsers(users) {
   return users.filter(user => user.status === 'done')
+}
+
+function hideBtnDelete() {
+  const deleteBtns = document.querySelectorAll('.main__btn--delete')
+  // debugger
+  deleteBtns.forEach(btn => btn.style.display = 'none')
+}
+
+function hideBtnDone() {
+  const doneBtns = document.querySelectorAll('.main__btn--done')
+  // debugger
+  doneBtns.forEach(btn => btn.style.display = 'none')
 }
 
 function handleButtonsForDoneUsers(li) {
