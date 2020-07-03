@@ -118,8 +118,14 @@ function initializeButtons() {
 
 function deleteUser(e) {
   const li = e.target.parentNode.parentNode.parentNode
-  li.setAttribute('data-status', 'deleted')
-  li.style.display = 'none'
+  const btnDeleteIcon = li.querySelector('.main__btn--delete')
+  // btnDeleteIcon.classList.add('main__btn--red')
+  // update user "status": deleted
+  patchStatus('http://localhost:3000/users/1', { status: "deleted" })
+  .then(data => {
+    console.log(data)
+  })
+  // window.stop() // dont reload the page
 }
 
 function setUserDone(e) {
@@ -220,3 +226,18 @@ for(let i = 0; i < navListItems.length; i++) {
     })
 }
 /* add active class to current element in sidenav (end) */
+
+/* patch request (start) */
+async function patchStatus(url, data) {
+  // debugger
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  return response.json()
+  window.stop()
+}
+/* patch request (end) */

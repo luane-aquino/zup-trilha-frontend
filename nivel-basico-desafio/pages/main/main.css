@@ -150,11 +150,17 @@ header {
 	background: transparent;
 	border: none;
 	font-size: 1rem;
-	color: #aeaeae;
+	/* color: #aeaeae; */
 	cursor: pointer;
+}
+.main__btn--delete, .main__btn--all, .main__btn--done {
+	color: #aeaeae;
 }
 main li:last-child a {
 	border: none;
+}
+.main__btn--red {
+	color: red;
 }
 .section__search {
 	display: none;
