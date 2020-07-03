@@ -159,11 +159,8 @@ navDone.addEventListener('click', showDoneUsers)
 navAll.addEventListener('click', showAllUsers)
 
 function showAllUsers() {
-  const listItems = userList.querySelectorAll('li')
-  listItems.forEach(li => {
-    showListItem(li)
-    showAllButtons(li)
-  })
+  getUsers()
+    .then(users => fillUIAllUsers(users))
 }
 
 // function showAllButtons(li) {
@@ -206,11 +203,7 @@ function filterDeletedUsers(users) {
 }
 
 function filterDoneUsers(users) {
-  const doneUsers = users.filter(user => user.status === 'done')
-  // deletedUsers.forEach(item => console.log('**', item))
-  // console.log('**', typeof deletedUsers)
-  // debugger
-  return doneUsers
+  return users.filter(user => user.status === 'done')
 }
 
 function handleButtonsForDoneUsers(li) {
