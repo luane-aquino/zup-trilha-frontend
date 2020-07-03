@@ -120,8 +120,11 @@ function deleteUser(e) {
   const li = e.target.parentNode.parentNode.parentNode
   const btnDeleteIcon = li.querySelector('.main__btn--delete')
   // btnDeleteIcon.classList.add('main__btn--red')
+  // get id
+  const id = li.getAttribute('data-id')
+  // debugger
   // update user "status": deleted
-  patchStatus('http://localhost:3000/users/1', { status: "deleted" })
+  patchStatus(`http://localhost:3000/users/${id}`, { status: "deleted" })
   .then(data => {
     console.log(data)
   })
