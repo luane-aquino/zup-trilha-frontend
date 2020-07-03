@@ -169,6 +169,7 @@ navAll.addEventListener('click', showAllUsers)
 function showAllUsers() {
   getUsers()
     .then(users => fillUIAllUsers(users))
+    .finally(initializeButtons)
 }
 
 function showDoneUsers() {
@@ -179,6 +180,9 @@ function showDoneUsers() {
   .then(doneUsers => {
     // debugger
     fillUIAllUsers(doneUsers)
+  })
+  .finally(() => {
+    initializeButtons()
     hideBtnDone()
   })
 }
@@ -191,8 +195,13 @@ function showDeletedUsers() {
     .then(deletedUsers => {
       // debugger
       fillUIAllUsers(deletedUsers)
-      hideBtnDelete()
     })
+    .finally(() => {
+      initializeButtons()
+      hideBtnDone()
+    })
+
+    hideBtnDelete()
 }
 
 function filterDeletedUsers(users) {
