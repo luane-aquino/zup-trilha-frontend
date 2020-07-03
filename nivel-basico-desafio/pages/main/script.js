@@ -148,8 +148,16 @@ function setUserDone(e) {
 
 function showAll(e) {
   const li = e.target.parentNode.parentNode.parentNode
-  li.setAttribute('data-status', 'all')
-  li.style.display = 'none'
+  // const btnDeleteIcon = li.querySelector('.main__btn--delete')
+  // btnDeleteIcon.classList.add('main__btn--red')
+  // get id
+  const id = li.getAttribute('data-id')
+  // debugger
+  // update user "status": deleted
+  patchStatus(`http://localhost:3000/users/${id}`, { status: "" })
+  .then(data => {
+    console.log(data)
+  })
 }
 /* code for buttons inside each li (end) */
 
@@ -231,6 +239,6 @@ async function patchStatus(url, data) {
     body: JSON.stringify(data)
   })
   return response.json()
-  window.stop()
+  // window.stop()
 }
 /* patch request (end) */
