@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // get all users from api
 async function getUsers() {
+  console.log('*fetchfetch GET users')
   let response = await fetch('http://localhost:3000/users')
   let users = await response.json()
   return users
@@ -187,29 +188,22 @@ function showDoneUsers() {
 }
 
 function showDeletedUsers() {
-  const listItems = userList.querySelectorAll('li')
-  listItems.forEach(li => {
-    if(li.getAttribute('data-status') === 'deleted') {
-      showListItem(li)
-      handleButtonsForDeletedUsers(li)
-    } else {
-      hideListItem(li)
-    }
-  })
+  getUsers()
+    .then(allUsers => {
+      return filterDeletedUsers(allUsers)
+    })
+    .then(deletedUsers => {
+      // debugger
+      fillUIAllUsers(deletedUsers)
+    })
 }
 
-function showListItem(li) {
-  // show li
-  li.style.display = ''
-}
-
-function handleButtonsForDeletedUsers(li) {
-  // hide delete btn
-  li.querySelector('.main__btn--delete').style.display = 'none'
-  // show all btn
-  li.querySelector('.main__btn--all').style.display = ''
-  // show done btn
-  li.querySelector('.main__btn--done').style.display = ''
+function filterDeletedUsers(users) {
+  const deletedUsers = users.filter(user => user.status === 'deleted')
+  // deletedUsers.forEach(item => console.log('**', item))
+  // console.log('**', typeof deletedUsers)
+  // debugger
+  return deletedUsers
 }
 
 function handleButtonsForDoneUsers(li) {
@@ -219,11 +213,6 @@ function handleButtonsForDoneUsers(li) {
   li.querySelector('.main__btn--all').style.display = ''
   // show delete btn
   li.querySelector('.main__btn--delete').style.display = ''
-}
-
-function hideListItem(li) {
-  // hide li
-  li.style.display = 'none'
 }
 /* code for sidenav (end) */
 
@@ -240,7 +229,7 @@ for(let i = 0; i < navListItems.length; i++) {
 
 /* patch request (start) */
 async function patchStatus(url, data) {
-  // debugger
+  console.log('*fetch PATCH')
   const response = await fetch(url, {
     method: 'PATCH',
     headers: {
