@@ -4,7 +4,7 @@
   "description": "Objetivo:\r Implementar uma aplicação para gerenciar pessoas. Essa aplicação necessita ser executada nos navegadores mais recentes do mercado.",
   "main": "index.html",
   "scripts": {
-    "start": "concurrently \"json-server --watch ./data/db.json\" \"live-server\""
+    "start": "concurrently \"json-server --watch data/db.json\" \"live-server --ignore=data/db.json .\""
   },
   "keywords": [],
   "author": "",
