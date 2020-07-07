@@ -2,8 +2,10 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
   getUsers()
-    .then(users => fillUIAllUsers(users))
-    // .finally(initializeButtons)
+    .then(res => {
+      users = res
+      fillUIAllUsers()
+    })
 })
 
 // get all users from api
@@ -15,6 +17,7 @@ async function getUsers() {
 }
 /* initialize ui (end) */
 
+let users = []
 const headerSearchInput = document.getElementById('header__search__input')
 const headerBtn = document.getElementById('header__menu-icon')
 const sectionSearch = document.getElementById('section__search')
@@ -94,7 +97,7 @@ function render(users) {
   return html
 }
 
-function fillUIAllUsers(users) {
+function fillUIAllUsers() {
   const usersHTML = render(users)
   userList.innerHTML = usersHTML
 }
@@ -121,16 +124,19 @@ function deleteUser(event) {
   const e = event || window.event
   const li = e.target.parentNode.parentNode.parentNode
   // hide user
-  // debugger
   li.classList.add('main__list-item-container--hide')
   // get id
   const id = li.getAttribute('data-id')
-  // debugger
   // update user "status": deleted
   patchStatus(`http://localhost:3000/users/${id}`, { status: "deleted" })
-  .then(data => {
-    console.log(data)
+  .then(res => {
+    updateStatusOfVariableUsers(id, "deleted")
   })
+}
+
+function updateStatusOfVariableUsers(id, statusValue) {
+  let filteredUser = users.filter(user => user.id === parseInt(id))
+  filteredUser[0].status = statusValue
 }
 
 function setUserDone(e) {
