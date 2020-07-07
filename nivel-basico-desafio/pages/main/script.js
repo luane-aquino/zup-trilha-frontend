@@ -57,7 +57,7 @@ headerBtn.addEventListener('click', () => {
 
 /* fill ui with user data from api (start) */
 // fill ui with user data
-function generateHTMLAllUsers(users) {
+function render(users) {
   let html = ''
   users.forEach(user => {
     html += `
@@ -95,7 +95,7 @@ function generateHTMLAllUsers(users) {
 }
 
 function fillUIAllUsers(users) {
-  const usersHTML = generateHTMLAllUsers(users)
+  const usersHTML = render(users)
   userList.innerHTML = usersHTML
 }
 /* fill ui with user data from api (end) */
