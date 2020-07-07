@@ -10,7 +10,6 @@ const mainIconsBirthday = document.getElementById('main__icons__birthday')
 const mainIconsLocation = document.getElementById('main__icons__location')
 const mainIconsPassword = document.getElementById('main__icons__password')
 
-/* get user/id from api and initialize ui (start) */
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
   const id = getId()
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   })
 })
 
-//get id from query parameter
+// get id from query parameter
 function getId() {
   const params = new URLSearchParams(document.location.search.substring(1))
   const id = params.get('id')
@@ -40,9 +39,7 @@ function setUserPicture() {
   userPicture.setAttribute('src', user.picture)
   userPicture.setAttribute('alt', user.name)
 }
-/* get user/id from api and initialize ui (end) */ 
 
-/* when user mouseover icons, show user details (start) */ 
 mainIconsName.addEventListener('mouseover', showUserName)
 mainIconsEmail.addEventListener('mouseover', showUserEmail)
 mainIconsTelephone.addEventListener('mouseover', showUserTelephone)
@@ -53,9 +50,9 @@ mainIconsPassword.addEventListener('mouseover', showUserPassword)
 function showUserName() {
   mainTitle.innerText = 'My name is'
   mainInfo.innerText = user.name
-  //set color when icon is active
+  // set color when icon is active
   mainIconsName.classList.add('main__icons-active')
-  //reset color of other icons
+  // reset color of other icons
   mainIconsEmail.classList.remove('main__icons-active')
   mainIconsTelephone.classList.remove('main__icons-active')
   mainIconsBirthday.classList.remove('main__icons-active')
@@ -66,9 +63,9 @@ function showUserName() {
 function showUserEmail() {
   mainTitle.innerText = 'My email is'
   mainInfo.innerText = user.email
-  //set color when icon is active
+  // set color when icon is active
   mainIconsEmail.classList.add('main__icons-active')
-  //reset color of other icons
+  // reset color of other icons
   mainIconsName.classList.remove('main__icons-active')
   mainIconsTelephone.classList.remove('main__icons-active')
   mainIconsBirthday.classList.remove('main__icons-active')
@@ -79,9 +76,9 @@ function showUserEmail() {
 function showUserTelephone() {
   mainTitle.innerText = 'My phone is'
   mainInfo.innerText = user.phone
-  //set color when icon is active
+  // set color when icon is active
   mainIconsTelephone.classList.add('main__icons-active')
-  //reset color of other icons
+  // reset color of other icons
   mainIconsEmail.classList.remove('main__icons-active')
   mainIconsName.classList.remove('main__icons-active')
   mainIconsBirthday.classList.remove('main__icons-active')
@@ -92,9 +89,9 @@ function showUserTelephone() {
 function showUserBirthday() {
   mainTitle.innerText = 'My birthday is'
   mainInfo.innerText = user.birthday
-  //set color when icon is active
+  // set color when icon is active
   mainIconsBirthday.classList.add('main__icons-active')
-  //reset color of other icons
+  // reset color of other icons
   mainIconsName.classList.remove('main__icons-active')
   mainIconsEmail.classList.remove('main__icons-active')
   mainIconsTelephone.classList.remove('main__icons-active')
@@ -105,9 +102,9 @@ function showUserBirthday() {
 function showUserLocation() {
   mainTitle.innerText = 'My location is'
   mainInfo.innerText = user.address.city
-  //set color when icon is active
+  // set color when icon is active
   mainIconsLocation.classList.add('main__icons-active')
-  //reset color of other icons
+  // reset color of other icons
   mainIconsName.classList.remove('main__icons-active')
   mainIconsEmail.classList.remove('main__icons-active')
   mainIconsTelephone.classList.remove('main__icons-active')
@@ -118,19 +115,16 @@ function showUserLocation() {
 function showUserPassword() {
   mainTitle.innerText = 'My password is'
   mainInfo.innerText = user.password
-  //set color when icon is active
+  // set color when icon is active
   mainIconsPassword.classList.add('main__icons-active')
-  //reset color of other icons
+  // reset color of other icons
   mainIconsName.classList.remove('main__icons-active')
   mainIconsEmail.classList.remove('main__icons-active')
   mainIconsTelephone.classList.remove('main__icons-active')
   mainIconsBirthday.classList.remove('main__icons-active')
   mainIconsLocation.classList.remove('main__icons-active')
 }
-/* when user mouseover icons, show user details (end) */
 
-/* handle back button (start) */
 headerBtnBack.addEventListener('click', function() {
   window.location = '../../index.html'
 })
-/* handle back button (end) */

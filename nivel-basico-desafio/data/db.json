@@ -25,7 +25,7 @@
         "catchPhrase": "Multi-layered client-server neural-net",
         "bs": "harness real-time e-markets"
       },
-      "status": "deleted"
+      "status": ""
     },
     {
       "id": 2,
@@ -52,7 +52,7 @@
         "catchPhrase": "Proactive didactic contingency",
         "bs": "synergize scalable supply-chains"
       },
-      "status": "deleted"
+      "status": "done"
     },
     {
       "id": 3,
@@ -106,7 +106,7 @@
         "catchPhrase": "Multi-tiered zero tolerance productivity",
         "bs": "transition cutting-edge web services"
       },
-      "status": "deleted"
+      "status": ""
     },
     {
       "id": 5,
@@ -160,7 +160,7 @@
         "catchPhrase": "Synchronised bottom-line interface",
         "bs": "e-enable innovative applications"
       },
-      "status": ""
+      "status": "deleted"
     },
     {
       "id": 7,
@@ -187,7 +187,7 @@
         "catchPhrase": "Configurable multimedia task-force",
         "bs": "generate enterprise e-tailers"
       },
-      "status": ""
+      "status": "deleted"
     },
     {
       "id": 8,
@@ -214,7 +214,7 @@
         "catchPhrase": "Implemented secondary concept",
         "bs": "e-enable extensible e-tailers"
       },
-      "status": ""
+      "status": "deleted"
     },
     {
       "id": 9,
@@ -241,7 +241,7 @@
         "catchPhrase": "Switchable contextually-based project",
         "bs": "aggregate real-time technologies"
       },
-      "status": ""
+      "status": "done"
     },
     {
       "id": 10,
@@ -268,7 +268,7 @@
         "catchPhrase": "Centralized empowering task-force",
         "bs": "target end-to-end models"
       },
-      "status": ""
+      "status": "deleted"
     }
   ]
 }

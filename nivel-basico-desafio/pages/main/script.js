@@ -1,4 +1,3 @@
-/* initialize ui (start) */ 
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
   getUsers()
@@ -10,12 +9,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // get all users from api
 async function getUsers() {
-  console.log('*fetch GET users')
   let response = await fetch('http://localhost:3000/users')
-  let users = await response.json()
+  let users = response.json()
   return users
 }
-/* initialize ui (end) */
 
 let users = []
 const headerSearchInput = document.getElementById('header__search__input')
@@ -29,11 +26,9 @@ const navAll = document.getElementById('show-all')
 const navList = document.getElementById('nav__list')
 const navListItems = navList.getElementsByTagName('li')
 
-/* filter by name and email (start) */
 headerSearchInput.addEventListener('keyup', filterByName)
 
 function filterByName() {
-  console.log('**filter was called')
   let contactItems = document.querySelectorAll('.main__list-item-container')
   let filterValue = document.getElementById('header__search__input').value.toUpperCase()
 
@@ -48,17 +43,13 @@ function filterByName() {
     }
   })
 }
-/* filter by name and email (end) */
 
-/* handle hamburger menu (start) */ 
 // when click menu btn, show nav and hide searchbar
 headerBtn.addEventListener('click', () => {
   sectionSearch.classList.toggle('section-close')
   nav.classList.toggle('nav-open')
 })
-/* handle hamburger menu (end) */ 
 
-/* fill ui with user data from api (start) */
 // generate template string
 function generateHTML(usersToShow) {
   let html = ''
@@ -101,33 +92,13 @@ function render(usersToShow) {
   const usersHTML = generateHTML(usersToShow)
   userList.innerHTML = usersHTML
 }
-/* fill ui with user data from api (end) */
-
-/* code for buttons inside each li (start) */
-// function initializeButtons() {
-//   // loop usuarios
-//   // para cada li/item add listener to 3 btns
-//   const items = document.querySelectorAll('.main__list-item-container')
-//   items.forEach(item => {
-//     const btnDelete = item.querySelector('.main__btn--delete')
-//     btnDelete.addEventListener('click', deleteUser)
-
-//     const btnAll = item.querySelector('.main__btn--all')
-//     btnAll.addEventListener('click', showAll)
-
-//     const btnDone = item.querySelector('.main__btn--done')
-//     btnDone.addEventListener('click', setUserDone)
-//   })
-// }
 
 function updateStatusOfVariableUsers(id, statusValue) {
   let filteredUser = users.filter(user => user.id === parseInt(id))
   filteredUser[0].status = statusValue
-  debugger
 }
 
 function setStatusToEmpty(event) {
-  // debugger
   const e = event || window.event
   const li = e.target.parentNode.parentNode.parentNode
   // hide user
@@ -169,22 +140,6 @@ function setUserDone(event) {
   })
 }
 
-// function showAll(e) {
-//   const li = e.target.parentNode.parentNode.parentNode
-//   // const btnDeleteIcon = li.querySelector('.main__btn--delete')
-//   // btnDeleteIcon.classList.add('main__btn--red')
-//   // get id
-//   const id = li.getAttribute('data-id')
-//   // debugger
-//   // update user "status": deleted
-//   patchStatus(`http://localhost:3000/users/${id}`, { status: "" })
-//   .then(data => {
-//     console.log(data)
-//   })
-// }
-/* code for buttons inside each li (end) */
-
-/* code for sidenav (start) */
 navDeleted.addEventListener('click', showDeletedUsers)
 navDone.addEventListener('click', showDoneUsers)
 navAll.addEventListener('click', showStatusUndefinedUsers)
@@ -207,15 +162,6 @@ function showDeletedUsers() {
   hideBtnDelete()
 }
 
-function filterDeletedUsers(users) {
-  const deletedUsers = users.filter(user => user.status === 'deleted')
-  return deletedUsers
-}
-
-function filterDoneUsers(users) {
-  return users.filter(user => user.status === 'done')
-}
-
 function hideBtnDelete() {
   const deleteBtns = document.querySelectorAll('.main__btn--delete')
   deleteBtns.forEach(btn => btn.style.display = 'none')
@@ -230,9 +176,7 @@ function hideBtnAll() {
   const allBtns = document.querySelectorAll('.main__btn--all')
   allBtns.forEach(btn => btn.style.display = 'none')
 }
-/* code for sidenav (end) */
 
-/* add active class to current element in sidenav (start) */
 // add listener for each list item
 for(let i = 0; i < navListItems.length; i++) {
     navListItems[i].addEventListener('click', function() {
@@ -241,11 +185,8 @@ for(let i = 0; i < navListItems.length; i++) {
       this.className = 'nav--active'
     })
 }
-/* add active class to current element in sidenav (end) */
 
-/* patch request (start) */
 async function patchStatus(url, data) {
-  console.log('*fetch PATCH')
   const response = await fetch(url, {
     method: 'PATCH',
     headers: {
@@ -254,6 +195,4 @@ async function patchStatus(url, data) {
     body: JSON.stringify(data)
   })
   return response.json()
-  // window.stop()
 }
-/* patch request (end) */
