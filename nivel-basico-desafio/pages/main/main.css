@@ -156,6 +156,15 @@ header {
 .main__btn--delete, .main__btn--all, .main__btn--done {
 	color: #aeaeae;
 }
+.main__btn--delete:hover {
+	color: red;
+}
+.main__btn--done:hover {
+	color: #b9c53b;
+}
+.main__btn--all:hover {
+	color: lightblue;
+}
 main li:last-child a {
 	border: none;
 }
