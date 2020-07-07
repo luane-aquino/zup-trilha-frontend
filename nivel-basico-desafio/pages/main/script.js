@@ -153,19 +153,19 @@ function setUserDone(event) {
   })
 }
 
-function showAll(e) {
-  const li = e.target.parentNode.parentNode.parentNode
-  // const btnDeleteIcon = li.querySelector('.main__btn--delete')
-  // btnDeleteIcon.classList.add('main__btn--red')
-  // get id
-  const id = li.getAttribute('data-id')
-  // debugger
-  // update user "status": deleted
-  patchStatus(`http://localhost:3000/users/${id}`, { status: "" })
-  .then(data => {
-    console.log(data)
-  })
-}
+// function showAll(e) {
+//   const li = e.target.parentNode.parentNode.parentNode
+//   // const btnDeleteIcon = li.querySelector('.main__btn--delete')
+//   // btnDeleteIcon.classList.add('main__btn--red')
+//   // get id
+//   const id = li.getAttribute('data-id')
+//   // debugger
+//   // update user "status": deleted
+//   patchStatus(`http://localhost:3000/users/${id}`, { status: "" })
+//   .then(data => {
+//     console.log(data)
+//   })
+// }
 /* code for buttons inside each li (end) */
 
 /* code for sidenav (start) */
@@ -178,36 +178,15 @@ function showAllUsers() {
 }
 
 function showDoneUsers() {
-  getUsers()
-  .then(allUsers => {
-    return filterDoneUsers(allUsers)
-  })
-  .then(doneUsers => {
-    // debugger
-    render(doneUsers)
-  })
-  .finally(() => {
-    // initializeButtons()
-    hideBtnDone()
-  })
+  const doneUsers = users.filter(user => user.status === 'done')
+  render(doneUsers)
+  hideBtnDone()
 }
 
 function showDeletedUsers() {
   const deletedUsers = users.filter(user => user.status === 'deleted')
   render(deletedUsers)
   hideBtnDelete()
-  // getUsers()
-  //   .then(allUsers => {
-  //     return filterDeletedUsers(allUsers)
-  //   })
-  //   .then(deletedUsers => {
-  //     // debugger
-  //     fillUIAllUsers(deletedUsers)
-  //   })
-  //   .finally(() => {
-  //     // initializeButtons()
-  //     hideBtnDelete()
-  //   })
 }
 
 function filterDeletedUsers(users) {
@@ -221,7 +200,6 @@ function filterDoneUsers(users) {
 
 function hideBtnDelete() {
   const deleteBtns = document.querySelectorAll('.main__btn--delete')
-  // debugger
   deleteBtns.forEach(btn => btn.style.display = 'none')
 }
 
