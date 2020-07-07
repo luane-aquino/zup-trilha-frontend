@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   getUsers()
     .then(res => {
       users = res
-      fillUIAllUsers(users)
+      render(users)
     })
 })
 
@@ -59,10 +59,10 @@ headerBtn.addEventListener('click', () => {
 /* handle hamburger menu (end) */ 
 
 /* fill ui with user data from api (start) */
-// fill ui with user data
-function render(users) {
+// generate template string
+function generateHTML(usersToShow) {
   let html = ''
-  users.forEach(user => {
+  usersToShow.forEach(user => {
     html += `
       <li class="main__list-item-container" data-id="${user.id}" data-status="all">
         <a href="pages/user/user.html?id=${user.id}">
@@ -97,8 +97,8 @@ function render(users) {
   return html
 }
 
-function fillUIAllUsers(usersToShow) {
-  const usersHTML = render(usersToShow)
+function render(usersToShow) {
+  const usersHTML = generateHTML(usersToShow)
   userList.innerHTML = usersHTML
 }
 /* fill ui with user data from api (end) */
@@ -174,7 +174,7 @@ navDone.addEventListener('click', showDoneUsers)
 navAll.addEventListener('click', showAllUsers)
 
 function showAllUsers() {
-  fillUIAllUsers(users)
+  render(users)
 }
 
 function showDoneUsers() {
@@ -184,7 +184,7 @@ function showDoneUsers() {
   })
   .then(doneUsers => {
     // debugger
-    fillUIAllUsers(doneUsers)
+    render(doneUsers)
   })
   .finally(() => {
     // initializeButtons()
@@ -193,18 +193,21 @@ function showDoneUsers() {
 }
 
 function showDeletedUsers() {
-  getUsers()
-    .then(allUsers => {
-      return filterDeletedUsers(allUsers)
-    })
-    .then(deletedUsers => {
-      // debugger
-      fillUIAllUsers(deletedUsers)
-    })
-    .finally(() => {
-      // initializeButtons()
-      hideBtnDelete()
-    })
+  const deletedUsers = users.filter(user => user.status === 'deleted')
+  render(deletedUsers)
+  hideBtnDelete()
+  // getUsers()
+  //   .then(allUsers => {
+  //     return filterDeletedUsers(allUsers)
+  //   })
+  //   .then(deletedUsers => {
+  //     // debugger
+  //     fillUIAllUsers(deletedUsers)
+  //   })
+  //   .finally(() => {
+  //     // initializeButtons()
+  //     hideBtnDelete()
+  //   })
 }
 
 function filterDeletedUsers(users) {
