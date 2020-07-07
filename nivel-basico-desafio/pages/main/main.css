@@ -100,9 +100,6 @@ header {
 .main__list p {
 	margin: 0;
 }
-.main__list-item--hide {
-	display: none;
-}
 .main__list-item-container {
 	display: flex;
 	align-items: center;
@@ -111,6 +108,9 @@ header {
 	border-radius: 4px;
 	border-bottom: 1px solid rgba(211, 211, 211, 0.4);
 	background: #fff;
+}
+.main__list-item-container--hide {
+	display: none;
 }
 .main__list-item-container a:not(.main__list-item__name) {
 	color: #aeaeae;

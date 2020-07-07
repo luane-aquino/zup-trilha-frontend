@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
   getUsers()
     .then(users => fillUIAllUsers(users))
-    .finally(initializeButtons)
+    // .finally(initializeButtons)
 })
 
 // get all users from api
@@ -78,13 +78,13 @@ function render(users) {
           <span>${user.address.city}</span>
         </a>
         <div class="main__icons-container">
-          <button data-type="btn-delete" class="main__btn--delete">
+          <button data-type="btn-delete" class="main__btn--delete" onclick="deleteUser(event)">
             <i class="fas fa-trash-alt"></i>
           </button>
-          <button data-type="btn-all" class="main__btn--all">
+          <button data-type="btn-all" class="main__btn--all" onclick="showAll(event)">
             <i class="far fa-list-alt"></i>
           </button>
-          <button data-type="btn-done" class="main__btn--done">
+          <button data-type="btn-done" class="main__btn--done" onclick="setUserDone(event)">
             <i class="fas fa-check-double"></i>
           </button>
         </div>
@@ -101,26 +101,28 @@ function fillUIAllUsers(users) {
 /* fill ui with user data from api (end) */
 
 /* code for buttons inside each li (start) */
-function initializeButtons() {
-  // loop usuarios
-  // para cada li/item add listener to 3 btns
-  const items = document.querySelectorAll('.main__list-item-container')
-  items.forEach(item => {
-    const btnDelete = item.querySelector('.main__btn--delete')
-    btnDelete.addEventListener('click', deleteUser)
+// function initializeButtons() {
+//   // loop usuarios
+//   // para cada li/item add listener to 3 btns
+//   const items = document.querySelectorAll('.main__list-item-container')
+//   items.forEach(item => {
+//     const btnDelete = item.querySelector('.main__btn--delete')
+//     btnDelete.addEventListener('click', deleteUser)
 
-    const btnAll = item.querySelector('.main__btn--all')
-    btnAll.addEventListener('click', showAll)
+//     const btnAll = item.querySelector('.main__btn--all')
+//     btnAll.addEventListener('click', showAll)
 
-    const btnDone = item.querySelector('.main__btn--done')
-    btnDone.addEventListener('click', setUserDone)
-  })
-}
+//     const btnDone = item.querySelector('.main__btn--done')
+//     btnDone.addEventListener('click', setUserDone)
+//   })
+// }
 
-function deleteUser(e) {
+function deleteUser(event) {
+  const e = event || window.event
   const li = e.target.parentNode.parentNode.parentNode
-  // const btnDeleteIcon = li.querySelector('.main__btn--delete')
-  // btnDeleteIcon.classList.add('main__btn--red')
+  // hide user
+  // debugger
+  li.classList.add('main__list-item-container--hide')
   // get id
   const id = li.getAttribute('data-id')
   // debugger
@@ -129,7 +131,6 @@ function deleteUser(e) {
   .then(data => {
     console.log(data)
   })
-  // window.stop() // dont reload the page
 }
 
 function setUserDone(e) {
@@ -169,7 +170,7 @@ navAll.addEventListener('click', showAllUsers)
 function showAllUsers() {
   getUsers()
     .then(users => fillUIAllUsers(users))
-    .finally(initializeButtons)
+    // .finally(initializeButtons)
 }
 
 function showDoneUsers() {
@@ -182,7 +183,7 @@ function showDoneUsers() {
     fillUIAllUsers(doneUsers)
   })
   .finally(() => {
-    initializeButtons()
+    // initializeButtons()
     hideBtnDone()
   })
 }
@@ -197,7 +198,7 @@ function showDeletedUsers() {
       fillUIAllUsers(deletedUsers)
     })
     .finally(() => {
-      initializeButtons()
+      // initializeButtons()
       hideBtnDelete()
     })
 }
