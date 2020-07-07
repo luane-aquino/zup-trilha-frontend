@@ -33,7 +33,7 @@ Requisitos
 Requirement: nodejs installed
 
 * Install dependencies: `npm install`
-* Open index.html in the browser and start json-server: `npm start`
+* start project: `npm start`
 
 Example endpoints:
 * http://localhost:3000/users
