@@ -4,13 +4,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
   getUsers()
     .then(res => {
       users = res
-      render(users)
+      showStatusUndefinedUsers()
     })
 })
 
 // get all users from api
 async function getUsers() {
-  console.log('*fetchfetch GET users')
+  console.log('*fetch GET users')
   let response = await fetch('http://localhost:3000/users')
   let users = await response.json()
   return users
@@ -84,7 +84,7 @@ function generateHTML(usersToShow) {
           <button data-type="btn-delete" class="main__btn--delete" onclick="deleteUser(event)">
             <i class="fas fa-trash-alt"></i>
           </button>
-          <button data-type="btn-all" class="main__btn--all" onclick="showAll(event)">
+          <button data-type="btn-all" class="main__btn--all" onclick="setStatusToEmpty(event)">
             <i class="far fa-list-alt"></i>
           </button>
           <button data-type="btn-done" class="main__btn--done" onclick="setUserDone(event)">
@@ -123,6 +123,22 @@ function render(usersToShow) {
 function updateStatusOfVariableUsers(id, statusValue) {
   let filteredUser = users.filter(user => user.id === parseInt(id))
   filteredUser[0].status = statusValue
+  debugger
+}
+
+function setStatusToEmpty(event) {
+  // debugger
+  const e = event || window.event
+  const li = e.target.parentNode.parentNode.parentNode
+  // hide user
+  li.classList.add('main__list-item-container--hide')
+  // get id
+  const id = li.getAttribute('data-id')
+  // update user "status": ""
+  patchStatus(`http://localhost:3000/users/${id}`, { status: "" })
+  .then(res => {
+    updateStatusOfVariableUsers(id, "")
+  })
 }
 
 function deleteUser(event) {
@@ -171,10 +187,12 @@ function setUserDone(event) {
 /* code for sidenav (start) */
 navDeleted.addEventListener('click', showDeletedUsers)
 navDone.addEventListener('click', showDoneUsers)
-navAll.addEventListener('click', showAllUsers)
+navAll.addEventListener('click', showStatusUndefinedUsers)
 
-function showAllUsers() {
-  render(users)
+function showStatusUndefinedUsers() {
+  const statusUndefinedUsers = users.filter(user => user.status === '')
+  render(statusUndefinedUsers)
+  hideBtnAll()
 }
 
 function showDoneUsers() {
@@ -205,8 +223,12 @@ function hideBtnDelete() {
 
 function hideBtnDone() {
   const doneBtns = document.querySelectorAll('.main__btn--done')
-  // debugger
   doneBtns.forEach(btn => btn.style.display = 'none')
+}
+
+function hideBtnAll() {
+  const allBtns = document.querySelectorAll('.main__btn--all')
+  allBtns.forEach(btn => btn.style.display = 'none')
 }
 /* code for sidenav (end) */
 
