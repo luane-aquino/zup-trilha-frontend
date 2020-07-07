@@ -120,6 +120,11 @@ function fillUIAllUsers() {
 //   })
 // }
 
+function updateStatusOfVariableUsers(id, statusValue) {
+  let filteredUser = users.filter(user => user.id === parseInt(id))
+  filteredUser[0].status = statusValue
+}
+
 function deleteUser(event) {
   const e = event || window.event
   const li = e.target.parentNode.parentNode.parentNode
@@ -134,22 +139,17 @@ function deleteUser(event) {
   })
 }
 
-function updateStatusOfVariableUsers(id, statusValue) {
-  let filteredUser = users.filter(user => user.id === parseInt(id))
-  filteredUser[0].status = statusValue
-}
-
-function setUserDone(e) {
+function setUserDone(event) {
+  const e = event || window.event
   const li = e.target.parentNode.parentNode.parentNode
-  // const btnDoneIcon = li.querySelector('.main__btn--done')
-  // btnDeleteIcon.classList.add('main__btn--red')
+  // hide user
+  li.classList.add('main__list-item-container--hide')
   // get id
   const id = li.getAttribute('data-id')
-  // debugger
   // update user "status": done
   patchStatus(`http://localhost:3000/users/${id}`, { status: "done" })
-  .then(data => {
-    console.log(data)
+  .then(res => {
+    updateStatusOfVariableUsers(id, "done")
   })
 }
 
