@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   getUsers()
     .then(res => {
       users = res
-      fillUIAllUsers()
+      fillUIAllUsers(users)
     })
 })
 
@@ -97,8 +97,8 @@ function render(users) {
   return html
 }
 
-function fillUIAllUsers() {
-  const usersHTML = render(users)
+function fillUIAllUsers(usersToShow) {
+  const usersHTML = render(usersToShow)
   userList.innerHTML = usersHTML
 }
 /* fill ui with user data from api (end) */
@@ -174,9 +174,7 @@ navDone.addEventListener('click', showDoneUsers)
 navAll.addEventListener('click', showAllUsers)
 
 function showAllUsers() {
-  getUsers()
-    .then(users => fillUIAllUsers(users))
-    // .finally(initializeButtons)
+  fillUIAllUsers(users)
 }
 
 function showDoneUsers() {
